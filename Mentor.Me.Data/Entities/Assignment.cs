@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Mentor.Me.Data.Enums;
+
 namespace Mentor.Me.Data.Entities
 {
     public class Assignment : IEntity

@@ -33,12 +33,19 @@ builder.Services.AddAuthentication(o =>
         // Once a user is authenticated, the OAuth2 token info is stored in cookies.
         o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
-    .AddCookie()
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/api/users/authenticate";
+    })
     .AddGoogleOpenIdConnect(options =>
     {
         options.ClientId = secOpts.ClientId;
         options.ClientSecret = secOpts.ClientSecret;
-    });
+    })    .AddGoogle(options =>
+    {
+        options.ClientId = secOpts.ClientId;
+        options.ClientSecret = secOpts.ClientSecret;
+    });;
 
 builder.Services.ConfigureDbContext();
 

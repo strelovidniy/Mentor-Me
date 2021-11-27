@@ -22,9 +22,10 @@ namespace Mentor.Me.Web.ServiceExtensions
 
             services.AddTransient<ITaskService, TaskService>();
             services.AddTransient<ISkillService, SkillService>();
-            services.AddTransient<IPropositionService, PropositionService>();
             services.AddTransient<IChatService, ChatService>();
+            services.AddTransient<IDealService, DealService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPropositionService, PropositionService>();
             services.AddTransient<IGoogleCalendarService, GoogleCalendarService>();
 
             services.AddTransient<IApplyRequestService, ApplyRequestService>();

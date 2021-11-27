@@ -1,4 +1,5 @@
-﻿using Mentor.Me.Data.Entities;
+﻿using System.Linq;
+using Mentor.Me.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mentor.Me.Domain.Extensions.ServicesExtensions
