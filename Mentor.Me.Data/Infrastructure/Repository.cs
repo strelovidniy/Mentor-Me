@@ -7,7 +7,7 @@ using Task = System.Threading.Tasks.Task;
 namespace Mentor.Me.Data.Infrastructure
 {
     public sealed class Repository<TEntity> : IRepository<TEntity>
-        where TEntity : class, IEntity
+        where TEntity : IEntity
     {
         private readonly MentorMeContext context;
         private readonly DbSet<TEntity> dbEntities;

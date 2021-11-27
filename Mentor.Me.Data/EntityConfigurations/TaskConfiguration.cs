@@ -1,5 +1,4 @@
-﻿using Mentor.Me.Data.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Task = Mentor.Me.Data.Entities.Task;
 
