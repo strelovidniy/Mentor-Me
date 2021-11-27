@@ -1,4 +1,4 @@
-﻿namespace Mentor.Me.Data.Interfaces
+﻿namespace Mentor.Me.Data.Entities
 {
     public interface IEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace Mentor.Me.Data.Models.Enums
+﻿namespace Mentor.Me.Data.Enums
 {
     public enum TaskStatus : byte
     {

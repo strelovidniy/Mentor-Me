@@ -1,7 +1,6 @@
-﻿using Mentor.Me.Data.Interfaces;
-using Mentor.Me.Data.Models.Enums;
+﻿using Mentor.Me.Data.Enums;
 
-namespace Mentor.Me.Data.Models
+namespace Mentor.Me.Data.Entities
 {
     public class Proposition : IEntity
     {

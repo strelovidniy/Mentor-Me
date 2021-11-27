@@ -1,6 +1,4 @@
-﻿using Mentor.Me.Data.Interfaces;
-
-namespace Mentor.Me.Data.Models
+﻿namespace Mentor.Me.Data.Entities
 {
     public class ApplyRequest : IEntity
     {
