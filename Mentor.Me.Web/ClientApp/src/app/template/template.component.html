@@ -1,31 +1,42 @@
-
-<mat-toolbar color="primary">
-    <button (click)="drawer.toggle()" mat-icon-button class="example-icon menu-btn" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span class="app-name">My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="fav-btn icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="tg-btn icon" (click)="referToTelegramBot()">
-        <mat-icon>send</mat-icon>
-    </button>
-</mat-toolbar>
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-    <mat-drawer color="accent" #drawer class="example-sidenav" mode="over">
-        <app-nav-menu></app-nav-menu>
-    </mat-drawer>
-
-    <mat-drawer-content class="content">
-        <div class="content-wrapper">
-            <div id="container">
-                <ng-content></ng-content>
-            </div>
+<header class="header">
+    <h1 class="title">
+        Mentor<span>Me</span>
+    </h1>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <mat-icon>home</mat-icon>
+                    <div class="nav-link_text">Home</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <mat-icon>self_improvement</mat-icon>
+                    <div class="nav-link_text">Deals</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <mat-icon>question_mark</mat-icon>
+                    <div class="nav-link_text">About</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link">
+                    <mat-icon>account_circle</mat-icon>
+                    <div class="nav-link_text">Admin</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="content">
+    <div class="content-wrapper">
+        <div id="container">
+            <ng-content></ng-content>
         </div>
-
-        <app-loader color="primary" class="loader" (loaded)="onLoaded()" (loadedingStarted)="onLoadingStarted()"></app-loader>
+    </div>
     
-    </mat-drawer-content>
-
-</mat-drawer-container>
+    <app-loader color="primary" class="loader" (loaded)="onLoaded()" (loadedingStarted)="onLoadingStarted()"></app-loader>
+</div>
