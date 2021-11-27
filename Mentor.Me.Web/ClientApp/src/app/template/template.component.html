@@ -1,3 +1,17 @@
+<!-- <mat-toolbar color="primary">
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon menu-btn" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="app-name">My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="fav-btn icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="tg-btn icon" (click)="referToTelegramBot()">
+        <mat-icon>send</mat-icon>
+    </button>
+</mat-toolbar> -->
+
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
     <mat-drawer color="accent" #drawer class="example-sidenav" mode="over">
         <app-nav-menu></app-nav-menu>
@@ -9,8 +23,6 @@
                 <ng-content></ng-content>
             </div>
         </div>
-
-        <mat-spinner class="loading-spinner"></mat-spinner>
     </mat-drawer-content>
 
 </mat-drawer-container>
