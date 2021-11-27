@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Route("api/calendar")]
+    [Route("api/v1/calendar")]
     public class GoogleCalendarController : ControllerBase
     {
         private readonly IGoogleCalendarService _googleCalendarService;

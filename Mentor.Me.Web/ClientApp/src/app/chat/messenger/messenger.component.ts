@@ -6,6 +6,7 @@ import EndpointService from 'src/app/shared/services/endpoint.service';
 import { ActivatedRoute } from '@angular/router';
 import Chat from 'src/app/shared/types/Chat';
 import ChatService from 'src/app/shared/services/chat.service';
+import Message from 'src/app/shared/types/message';
 
 @Component({
     selector: 'app-messenger',
@@ -40,21 +41,21 @@ export default class MessengerComponent implements AfterViewInit, OnDestroy {
 
         const chat = await this.chatService.getChatById(this.chatId);
 
-        // this.connection = new signalR.HubConnectionBuilder()
-        //         .configureLogging(signalR.LogLevel.Information)
-        //         .withUrl(`${this.endpointService.chatUrl}messages-hub`)
-        //         .withAutomaticReconnect()
-        //         .build();
+        this.connection = new signalR.HubConnectionBuilder()
+                .configureLogging(signalR.LogLevel.Information)
+                .withUrl(`${this.endpointService.chatUrl}messages-hub`)
+                .withAutomaticReconnect()
+                .build();
 
-        // await this.connection.start();
+        await this.connection.start();
 
-        // await this.invokeSignalR();
+        await this.invokeSignalR();
 
-        // this.connection.onreconnected(() => this.invokeSignalR());
+        this.connection.onreconnected(() => this.invokeSignalR());
 
-        // this.connection.on('RecieveMessage', (receivedMessage: any) => {
-        //     this.chat?.messages?.push(receivedMessage);
-        // });
+        this.connection.on('RecieveMessage', (receivedMessage: any) => {
+            this.chat?.messages?.push(receivedMessage);
+        });
 
         this.templateService.TurnLoaderOff();
     }
@@ -70,26 +71,18 @@ export default class MessengerComponent implements AfterViewInit, OnDestroy {
 
             this.messageInputFormControl.reset();
 
-            // if (message) {
-            //     this.connection.invoke('SendMessageToGroup', {
-            //         chatId: this.chatId,
-            //         date: new Date(Date.now()),
-            //         fromBot: false,
-            //         id: '00000000-0000-0000-0000-000000000000',
-            //         status: MessageStatus.Read,
-            //         text: message,
-            //         telegramChatId: this.chat.telegramChatId
-            //     } as Message);
-            // }
+            if (message) {
+                this.connection.invoke('SendMessageToGroup', {
+                    chatId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                    date: new Date(Date.now()),
+                    id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                    sender: null,
+                    senderId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                    text: message
+                } as Message);
+            }
 
-            this.chat.messages.push({
-                chatId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
-                date: new Date(Date.now()),
-                id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
-                sender: null,
-                senderId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
-                text: message
-            });
+            this.chat.messages.push();
         } else {
 
         }

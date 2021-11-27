@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Mentor.Me.Domain.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
@@ -13,15 +14,15 @@ namespace Mentor.Me.Web.Controllers
         public ChatController(IChatService chatService) =>
             _chatService = chatService;
 
-        [HttpGet("unread/{userId:guid}")]
+        [HttpGet("unread/{userId:guid}"), AllowAnonymous]
         public async Task<IActionResult> GetUnreadChatsAsync(Guid userId) => 
             Ok(await _chatService.GetUnreadChatsByUserIdAsync(userId));
 
-        [HttpGet("read/{userId:guid}")]
+        [HttpGet("read/{userId:guid}"), AllowAnonymous]
         public async Task<IActionResult> GetReadChatsAsync(Guid userId) => 
             Ok(await _chatService.GetReadChatsByUserIdAsync(userId));
 
-        [HttpGet("{chatId:guid}")]
+        [HttpGet("{chatId:guid}"), AllowAnonymous]
         public async Task<IActionResult> SendMessageAsync(Guid chatId) => 
             Ok(await _chatService.GetChatByIdAsync(chatId));
     }

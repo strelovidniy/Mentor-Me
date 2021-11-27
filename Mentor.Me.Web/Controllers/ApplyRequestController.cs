@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Microsoft.AspNetCore.Components.Route("api/applyRequests")]
+    [Route("api/applyRequests")]
     public class ApplyRequestController : ControllerBase
     {
         private readonly IApplyRequestService _applyRequest;

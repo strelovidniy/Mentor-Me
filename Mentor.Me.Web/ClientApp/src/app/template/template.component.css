@@ -56,11 +56,12 @@
     transform: scale(1.05);
 }
 
-.loading-spinner {
+.loader {
     position: absolute;
     top: calc(50% - 50px);
     left: calc(50% - 50px);
     z-index: 2;
+    width: 300px;
 }
 
 .content {

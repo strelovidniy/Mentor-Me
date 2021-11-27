@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Route("api/propositions")]
+    [Route("api/v1/propositions")]
     public class PropositionController : BaseApiController
     {
         private readonly IPropositionService _propositionService;

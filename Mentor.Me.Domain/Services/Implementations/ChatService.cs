@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Mentor.Me.Data.Entities;
 using Mentor.Me.Data.Enums;
 using Mentor.Me.Data.Infrastructure;

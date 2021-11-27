@@ -19,11 +19,11 @@ namespace Mentor.Me.Domain.Hubs
 
         public async Task SendMessageToGroup(Message message)
         {
-            var msg = await _chatService.AddMessageToChatAsync(message);
+            //var msg = await _chatService.AddMessageToChatAsync(message);
 
             await Clients
                 .Group(message.ChatId.ToString())
-                .SendAsync("RecieveMessage", msg);
+                .SendAsync("RecieveMessage", message);
         }
     }
 }

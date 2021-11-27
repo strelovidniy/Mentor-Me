@@ -7,7 +7,7 @@ using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Route("api/tasks")]
+    [Route("api/v1/tasks")]
     public class TaskController : BaseApiController
     {
         private readonly ITaskService _taskService;

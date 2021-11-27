@@ -1,4 +1,5 @@
 using Google.Apis.Auth.AspNetCore3;
+using Mentor.Me.Domain.Hubs;
 using Mentor.Me.Domain.Models;
 using Mentor.Me.Web.ServiceExtensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -23,42 +24,30 @@ var secOpts = builder.Configuration
 
 builder.Services.AddAuthentication(o =>
     {
-        // This forces challenge results to be handled by Google OpenID Handler, so there's no
-        // need to add an AccountController that emits challenges for Login.
         o.DefaultChallengeScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
-        // This forces forbid results to be handled by Google OpenID Handler, which checks if
-        // extra scopes are required and does automatic incremental auth.
         o.DefaultForbidScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
-        // Default scheme that will handle everything else.
-        // Once a user is authenticated, the OAuth2 token info is stored in cookies.
         o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     })
     .AddCookie(options =>
     {
-        options.LoginPath = "/api/users/authenticate";
+        options.LoginPath = "/api/v1/users/authenticate";
     })
     .AddGoogleOpenIdConnect(options =>
     {
         options.ClientId = secOpts.ClientId;
         options.ClientSecret = secOpts.ClientSecret;
-    })    .AddGoogle(options =>
+    })
+    .AddGoogle(options =>
     {
         options.ClientId = secOpts.ClientId;
         options.ClientSecret = secOpts.ClientSecret;
-    });;
+    });
+
+builder.Services.AddCors();
 
 builder.Services.ConfigureDbContext();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "_myAllowSpecificOrigins",
-        builder =>
-        {
-            builder.AllowAnyHeader();
-            builder.AllowAnyMethod();
-            builder.AllowAnyOrigin();
-        });
-});
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -68,14 +57,24 @@ if (!app.Environment.IsDevelopment()) app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseCors(x => x
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .WithOrigins("https://localhost:44408", "https://localhost:7024", "http://localhost:5024")
+    .AllowCredentials());
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors("_myAllowSpecificOrigins");
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<SignalRHub>("api/v1/chats/messages-hub");
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller}/{action=Index}/{id?}");
+});
 
 app.MapFallbackToFile("index.html"); ;
 

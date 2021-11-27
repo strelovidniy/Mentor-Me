@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {   
-    [AllowAnonymous, Route("api/users")]
+    [AllowAnonymous, Route("api/v1/users")]
     public class UserController : BaseApiController
     {
         private readonly IUserService _userService;

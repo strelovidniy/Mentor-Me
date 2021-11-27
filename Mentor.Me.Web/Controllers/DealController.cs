@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Route("api/deals")]
+    [Route("api/v1/deals")]
     public class DealController : BaseApiController
     {
         private readonly IDealService _dealService;
