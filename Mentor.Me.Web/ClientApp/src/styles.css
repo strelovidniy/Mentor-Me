@@ -3,6 +3,13 @@
 
 /* Provide sufficient contrast against white background */
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+}
+
 a {
     color: #0366d6;
 }
