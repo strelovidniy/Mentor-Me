@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 builder.Services.AddDbContext<MentorMeContext>(options => 
     options.UseSqlServer("name=ConnectionStrings:MentorMeDatabase"));
