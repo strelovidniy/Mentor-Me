@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Mentor.Me.Data.Interfaces;
+﻿using Mentor.Me.Data.Interfaces;
 using Mentor.Me.Data.Models.Enums;
 
 namespace Mentor.Me.Data.Models

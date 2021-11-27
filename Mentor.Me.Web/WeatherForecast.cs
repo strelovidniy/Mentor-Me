@@ -1,5 +1,3 @@
-using System;
-
 namespace Mentor.Me.Web
 {
     public class WeatherForecast

@@ -1,5 +1,4 @@
-﻿using System;
-using Mentor.Me.Data.Interfaces;
+﻿using Mentor.Me.Data.Interfaces;
 
 namespace Mentor.Me.Data.Models
 {

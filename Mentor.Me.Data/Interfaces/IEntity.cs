@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Mentor.Me.Data.Interfaces
+﻿namespace Mentor.Me.Data.Interfaces
 {
     public interface IEntity
     {

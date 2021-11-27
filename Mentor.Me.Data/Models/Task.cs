@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Mentor.Me.Data.Interfaces;
-using Mentor.Me.Data.Models.Enums;
+﻿using Mentor.Me.Data.Interfaces;
+using TaskStatus = Mentor.Me.Data.Models.Enums.TaskStatus;
 
 namespace Mentor.Me.Data.Models
 {
