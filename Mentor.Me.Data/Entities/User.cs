@@ -9,6 +9,6 @@
         public IEnumerable<Proposition> Propositions { get; set; }
         public IEnumerable<ApplyRequest> ApplyRequests { get; set; }
         public IEnumerable<Deal> Deals { get; set; }
-        public IEnumerable<Task> Tasks { get; set; }
+        public IEnumerable<Assignment> Tasks { get; set; }
     }
 }

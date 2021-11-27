@@ -1,6 +1,6 @@
 ﻿namespace Mentor.Me.Data.Enums
 {
-    public enum TaskStatus : byte
+    public enum AssignmentStatus : byte
     {
         Active = 0,
         Completed = 1,

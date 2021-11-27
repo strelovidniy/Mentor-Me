@@ -2,7 +2,7 @@
 using Mentor.Me.Domain.Services.Implementations;
 using Mentor.Me.Domain.Services.Interfaces;
 ﻿using Mentor.Me.Data.Entities;
-using Task = Mentor.Me.Data.Entities.Task;
+using Assignment = Mentor.Me.Data.Entities.Assignment;
 
 namespace Mentor.Me.Web.ServiceExtensions
 {
@@ -15,7 +15,7 @@ namespace Mentor.Me.Web.ServiceExtensions
             services.AddTransient<IRepository<Deal>, Repository<Deal>>();
             services.AddTransient<IRepository<Proposition>, Repository<Proposition>>();
             services.AddTransient<IRepository<Skill>, Repository<Skill>>();
-            services.AddTransient<IRepository<Task>, Repository<Task>>();
+            services.AddTransient<IRepository<Assignment>, Repository<Assignment>>();
 
             services.AddTransient<ITaskService, TaskService>();
         }

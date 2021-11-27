@@ -1,0 +1,75 @@
+#container {
+    opacity: 0;
+    transition: 500ms;
+    background: #FAFAFA;
+    width: 100%;
+    height: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    width: calc(100vw - 300px);
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+@media(max-width: 1000px) {
+    .content-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+    }
+}
+
+.app-name {
+    font-size: 24px;
+    margin-left: 1rem;
+}
+
+.icon {
+    margin: 0 .5rem;
+}
+
+.tg-btn,
+.fav-btn {
+    transition: all .3s ease;
+}
+
+.tg-btn:hover {
+    color: #2885FF;
+}
+
+.fav-btn:hover {
+    color: #e32d70;
+}
+
+.menu-btn {
+    transition: all .3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.05);
+}
+
+.loading-spinner {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 2;
+}
+
+.content {
+    height: calc(100vh - 68px);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+mat-toolbar {
+    background: #323337!important;
+}
