@@ -97,6 +97,12 @@ mat-toolbar {
     transform: translateX(-50%) translateY(-50%);
 }
 
+@media only screen and (max-width: 1400px) {
+    .title{
+        left: 30%;
+    }
+}
+
 .title span{
     color: #2885FF;
     font-size: 48px;
