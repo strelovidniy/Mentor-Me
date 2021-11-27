@@ -6,10 +6,10 @@ using Google.Apis.Auth.AspNetCore3;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
-using Mentor.Me.Domain.Interfaces;
 using Mentor.Me.Domain.Models;
+using Mentor.Me.Domain.Services.Interfaces;
 
-namespace Mentor.Me.Domain.Services
+namespace Mentor.Me.Domain.Services.Implementations
 {
     public class GoogleCalendarService : IGoogleCalendarService
     {
@@ -63,7 +63,7 @@ namespace Mentor.Me.Domain.Services
             return request;
         }
 
-        public static string GetRandomString(int length = 20)
+        private static string GetRandomString(int length = 20)
         {
             var random = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
