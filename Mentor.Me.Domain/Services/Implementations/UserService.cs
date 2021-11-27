@@ -72,5 +72,21 @@ namespace Mentor.Me.Domain.Services.Implementations
             (await _userRepository
                 .Query()
                 .FirstOrDefaultAsync(user => user.Email != null && user.Email == email, ct))!;
+        
+        public async Task CreateNewUserIfNotExistAsync(string email, string userName, CancellationToken ct)
+        {
+            var existUser = await GetUserByEmailIfExistAsync(email, ct);
+
+            if (existUser == null)
+            {
+                await AddUserAsync(new User
+                {
+                    Id = Guid.NewGuid(),
+                    Email = email,
+                    FullName = userName,
+                    Bio = "bio"
+                });
+            }
+        }
     }
 }
