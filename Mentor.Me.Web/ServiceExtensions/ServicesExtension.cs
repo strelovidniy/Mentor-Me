@@ -11,7 +11,6 @@ namespace Mentor.Me.Web.ServiceExtensions
             services.AddTransient<IRepository<User>, Repository<User>>();
             services.AddTransient<IRepository<ApplyRequest>, Repository<ApplyRequest>>();
             services.AddTransient<IRepository<Deal>, Repository<Deal>>();
-            services.AddTransient<IRepository<Log>, Repository<Log>>();
             services.AddTransient<IRepository<Proposition>, Repository<Proposition>>();
             services.AddTransient<IRepository<Skill>, Repository<Skill>>();
             services.AddTransient<IRepository<Task>, Repository<Task>>();
