@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
+﻿using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
 
 namespace Mentor.Me.Data.Entities
 {
