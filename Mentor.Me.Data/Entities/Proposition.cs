@@ -12,5 +12,6 @@ namespace Mentor.Me.Data.Entities
         public bool Active { get; set; }
         public Guid OwnerId { get; set; }
         public IEnumerable<User> Members { get; set; }
+        public IEnumerable<Skill> Skills { get; set; }
     }
 }
