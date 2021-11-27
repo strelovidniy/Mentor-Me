@@ -1,4 +1,7 @@
-﻿namespace Mentor.Me.Data.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace Mentor.Me.Data.Entities
 {
     public class Deal : IEntity
     {

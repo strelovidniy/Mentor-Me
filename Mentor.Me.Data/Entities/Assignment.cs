@@ -1,5 +1,5 @@
-﻿using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
-
+﻿using System;
+using System.Collections.Generic;
 namespace Mentor.Me.Data.Entities
 {
     public class Assignment : IEntity

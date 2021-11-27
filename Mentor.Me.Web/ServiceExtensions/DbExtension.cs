@@ -1,5 +1,6 @@
 ﻿using Mentor.Me.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Mentor.Me.Web.ServiceExtensions
 {
