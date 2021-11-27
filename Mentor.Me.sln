@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Me.Web", "Mentor.Me.Web\Mentor.Me.Web.csproj", "{692E1558-38A1-49B1-89D4-FA6136519B7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Me.Data", "Mentor.Me.Data\Mentor.Me.Data.csproj", "{36B1C14B-79F7-4251-85A3-A402DDE42210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mentor.Me.Domain", "Mentor.Me.Domain\Mentor.Me.Domain.csproj", "{FFBA5379-3291-4374-95DB-38C470B5E2D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{692E1558-38A1-49B1-89D4-FA6136519B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692E1558-38A1-49B1-89D4-FA6136519B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692E1558-38A1-49B1-89D4-FA6136519B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B1C14B-79F7-4251-85A3-A402DDE42210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B1C14B-79F7-4251-85A3-A402DDE42210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B1C14B-79F7-4251-85A3-A402DDE42210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B1C14B-79F7-4251-85A3-A402DDE42210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBA5379-3291-4374-95DB-38C470B5E2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBA5379-3291-4374-95DB-38C470B5E2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBA5379-3291-4374-95DB-38C470B5E2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBA5379-3291-4374-95DB-38C470B5E2D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
