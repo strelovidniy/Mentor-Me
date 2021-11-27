@@ -14,7 +14,7 @@
             "name": "Launch ng serve & Chrome",
             "url": "https://localhost:44408",
             "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "npm: start:dev",
+            "preLaunchTask": "npm: start",
             "sourceMaps": true,
             "sourceMapPathOverrides": {
                 "webpack:/*": "${webRoot}/*",
