@@ -18,6 +18,8 @@ namespace Mentor.Me.Web.ServiceExtensions
             services.AddTransient<IRepository<Assignment>, Repository<Assignment>>();
 
             services.AddTransient<ITaskService, TaskService>();
+            services.AddTransient<ISkillService, SkillService>();
+            services.AddTransient<IPropositionService, PropositionService>();
         }
     }
 }
