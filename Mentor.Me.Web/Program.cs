@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Mentor.Me.Data.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MentorMeContext>(options => 
+    options.UseSqlServer("name=ConnectionStrings:MentorMeDatabase"));
 
 var app = builder.Build();
 
