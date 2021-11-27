@@ -1,5 +1,7 @@
 ﻿using Mentor.Me.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Task = Mentor.Me.Data.Entities.Task;
+using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
 
 namespace Mentor.Me.Web.Controllers
 {
@@ -16,15 +18,15 @@ namespace Mentor.Me.Web.Controllers
             Ok(await _taskService.GetTaskByIdAsync(taskId));
 
         [HttpPost]
-        public async Task<IActionResult> AddTaskAsync(Data.Entities.Task task) =>
+        public async Task<IActionResult> AddTaskAsync(Task task) =>
             Ok(await _taskService.AddTaskAsync(task));
 
         [HttpPut]
-        public async Task<IActionResult> UpdateTaskAsync(Data.Entities.Task task) =>
+        public async Task<IActionResult> UpdateTaskAsync(Task task) =>
             Ok(await _taskService.UpdateTaskAsync(task));
 
         [HttpPut("{taskId:guid}/{taskStatus}")]
-        public async Task<IActionResult> UpdateTaskStatusAsync(Guid taskId, Data.Enums.TaskStatus taskStatus) =>
+        public async Task<IActionResult> UpdateTaskStatusAsync(Guid taskId, TaskStatus taskStatus) =>
             Ok(await _taskService.UpdateTaskStatusAsync(taskId, taskStatus));
     }
 }

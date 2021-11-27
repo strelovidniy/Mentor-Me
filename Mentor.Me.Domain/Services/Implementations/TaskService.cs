@@ -1,19 +1,21 @@
 ﻿using Mentor.Me.Data.Infrastructure;
 using Mentor.Me.Domain.Services.Interfaces;
+using Task = Mentor.Me.Data.Entities.Task;
+using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
 
 namespace Mentor.Me.Domain.Services.Implementations
 {
     public class TaskService : ITaskService
     {
-        private readonly IRepository<Data.Entities.Task> _taskRepository;
+        private readonly IRepository<Task> _taskRepository;
 
-        public TaskService(IRepository<Data.Entities.Task> taskRepository) =>
+        public TaskService(IRepository<Task> taskRepository) =>
             _taskRepository = taskRepository;
 
-        public async Task<Data.Entities.Task> GetTaskByIdAsync(Guid goalId) =>
+        public async Task<Task> GetTaskByIdAsync(Guid goalId) =>
             await _taskRepository.GetByIdAsync(goalId);
 
-        public async Task<Data.Entities.Task> AddTaskAsync(Data.Entities.Task task)
+        public async Task<Task> AddTaskAsync(Task task)
         {
             var addedTask = await _taskRepository.AddAsync(task);
 
@@ -22,7 +24,7 @@ namespace Mentor.Me.Domain.Services.Implementations
             return addedTask;
         }
 
-        public async Task<Data.Entities.Task> UpdateTaskAsync(Data.Entities.Task task)
+        public async Task<Task> UpdateTaskAsync(Task task)
         {
             var updatingTask = await GetTaskByIdAsync(task.Id);
 
@@ -42,9 +44,7 @@ namespace Mentor.Me.Domain.Services.Implementations
             return updatingTask;
         }
 
-        public async Task<Data.Entities.Task> UpdateTaskStatusAsync(
-            Guid taskId,
-            Data.Enums.TaskStatus taskStatus)
+        public async Task<Task> UpdateTaskStatusAsync(Guid taskId, TaskStatus taskStatus)
         {
             var updatingTask = await GetTaskByIdAsync(taskId);
 

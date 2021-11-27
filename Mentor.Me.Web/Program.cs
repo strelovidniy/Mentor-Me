@@ -1,23 +1,21 @@
-using Microsoft.EntityFrameworkCore;
-using Mentor.Me.Data.Context;
+using Mentor.Me.Web.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddServices();
+
 builder.Services.AddControllers().AddNewtonsoftJson();
 
-builder.Services.AddDbContext<MentorMeContext>(options => 
-    options.UseSqlServer("name=ConnectionStrings:MentorMeDatabase"));
+builder.Services.ConfigureDbContext();
+
+//builder.Logging.AddProvider(new DatabaseLoggerProvider());
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+if (!app.Environment.IsDevelopment()) app.UseHsts();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
