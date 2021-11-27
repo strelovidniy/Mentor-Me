@@ -1,4 +1,6 @@
-﻿namespace Mentor.Me.Data.Entities
+﻿using System;
+
+namespace Mentor.Me.Data.Entities
 {
     public class Message : IEntity
     {
