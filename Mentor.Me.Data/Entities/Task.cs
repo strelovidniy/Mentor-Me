@@ -1,7 +1,6 @@
-﻿using Mentor.Me.Data.Interfaces;
-using TaskStatus = Mentor.Me.Data.Models.Enums.TaskStatus;
+﻿using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
 
-namespace Mentor.Me.Data.Models
+namespace Mentor.Me.Data.Entities
 {
     public class Task : IEntity
     {
