@@ -1,7 +1,8 @@
 ﻿using Mentor.Me.Data.Infrastructure;
+using Mentor.Me.Data.Entities;
 using Mentor.Me.Domain.Services.Implementations;
 using Mentor.Me.Domain.Services.Interfaces;
-﻿using Mentor.Me.Data.Entities;
+using Microsoft.Extensions.DependencyInjection;
 using Assignment = Mentor.Me.Data.Entities.Assignment;
 
 namespace Mentor.Me.Web.ServiceExtensions
@@ -16,10 +17,14 @@ namespace Mentor.Me.Web.ServiceExtensions
             services.AddTransient<IRepository<Proposition>, Repository<Proposition>>();
             services.AddTransient<IRepository<Skill>, Repository<Skill>>();
             services.AddTransient<IRepository<Assignment>, Repository<Assignment>>();
-
             services.AddTransient<ITaskService, TaskService>();
-            services.AddTransient<ISkillService, SkillService>();
+            services.AddTransient<IDealService, DealService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<IPropositionService, PropositionService>();
+            services.AddTransient<ISkillService, SkillService>();
+            services.AddTransient<IGoogleCalendarService, GoogleCalendarService>();
+
+            services.AddTransient<IApplyRequestService, ApplyRequestService>();
         }
     }
 }

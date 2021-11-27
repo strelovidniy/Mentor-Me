@@ -1,4 +1,6 @@
-﻿using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
+﻿using System;
+using System.Collections.Generic;
+using Mentor.Me.Data.Enums;
 
 namespace Mentor.Me.Data.Entities
 {

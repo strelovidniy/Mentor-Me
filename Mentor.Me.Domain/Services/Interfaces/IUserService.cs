@@ -1,4 +1,8 @@
-﻿using Mentor.Me.Data.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Mentor.Me.Data.Entities;
 
 namespace Mentor.Me.Domain.Services.Interfaces
 {
@@ -10,5 +14,6 @@ namespace Mentor.Me.Domain.Services.Interfaces
         Task<User> AddUserAsync(User user);
         Task<bool> RemoveUserByIdAsync(Guid userId);
         Task<User> GetUserByEmailIfExistAsync(string email, CancellationToken ct);
+        Task CreateNewUserIfNotExistAsync(string email, string userName, CancellationToken ct);
     }
 }
