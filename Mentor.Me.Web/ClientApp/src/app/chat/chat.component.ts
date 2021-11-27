@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import ChatService from '../shared/services/chat.service';
+import LoginService from '../shared/services/login.service';
 import TemplateService from '../shared/services/template.service';
 import Chat from '../shared/types/Chat';
 
@@ -11,34 +12,31 @@ import Chat from '../shared/types/Chat';
 })
 export default class ChatComponent implements OnInit, AfterViewInit {
 
-    public chats: Chat[] = [];
-    //     {
-    //         endDate: new Date(),
-    //         hasUnreadMessages: true,
-    //         id: '0000-0000-000000-000-000000',
-    //         messages: [],
-    //         name: 'Chat 1',
-    //         status: ChatStatus.Active,
-    //         telegramChatId: 0,
-    //         userId: ''
-    //     },
+    public chats: Chat[] = [
+        {
+            dealId: '0000-0000-000000-000-000000',
+            hasUnreadMessages: true,
+            id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+            messages: [],
+            name: 'Chat 1',
+            participants: [],
+        },
 
-    //     {
-    //         endDate: new Date(),
-    //         hasUnreadMessages: false,
-    //         id: '',
-    //         messages: [],
-    //         name: 'Chat 1',
-    //         status: ChatStatus.Active,
-    //         telegramChatId: 0,
-    //         userId: ''
-    //     }
-    // ];
+        {
+            dealId: '0000-0000-000000-000-000000',
+            hasUnreadMessages: true,
+            id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+            messages: [],
+            name: 'Chat 1',
+            participants: []
+        }
+    ];
 
     public constructor(
         private templateService: TemplateService,
         private chatService: ChatService,
-        private router: Router
+        private router: Router,
+        private loginService: LoginService
     ) { }
 
     public ngOnInit(): void {
@@ -46,8 +44,8 @@ export default class ChatComponent implements OnInit, AfterViewInit {
     }
 
     public async ngAfterViewInit(): Promise<void> {
-        this.chats = (await this.chatService.getUnreadChats()) || [];
-        this.chats.push(...((await this.chatService.getReadChats()) || []));
+        this.chats.push(...((await this.chatService.getUnreadChats((await this.loginService.getUser()).id)) || []));
+        this.chats.push(...((await this.chatService.getReadChats((await this.loginService.getUser()).id)) || []));
         this.templateService.TurnLoaderOff();
     }
 

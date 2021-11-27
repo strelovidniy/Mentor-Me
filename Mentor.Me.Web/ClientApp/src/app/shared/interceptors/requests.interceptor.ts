@@ -12,7 +12,9 @@ export default class RequestsInteceptor implements HttpInterceptor {
     ) { }
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(
+        const reqClone = request.clone({ url: request.url.replace('localhost:44408', 'localhost:7024') });
+
+        return next.handle(reqClone).pipe(
             catchError((response: HttpResponse<any>) => {
                 if (response.status === 401) this.router.navigate['/api/v1/account/google-login'];
                 if (response.status === 400 || response.status === 500 || !response?.status) this.router.navigate(['/error/loading'], { queryParams: { redirectUrl: location.pathname } });

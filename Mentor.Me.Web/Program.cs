@@ -10,7 +10,16 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 
 builder.Services.ConfigureDbContext();
 
-//builder.Logging.AddProvider(new DatabaseLoggerProvider());
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "_myAllowSpecificOrigins",
+        builder =>
+        {
+            builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
+            builder.AllowAnyOrigin();
+        });
+});
 
 var app = builder.Build();
 
@@ -21,6 +30,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors("_myAllowSpecificOrigins");
 
 app.MapControllerRoute(
     name: "default",

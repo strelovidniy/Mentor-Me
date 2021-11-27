@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import AppComponent from './app.component';
 import TemplateModule from './template/template.module';
+import AdminGuard from './shared/guards/admin.guard';
+import AnimGuard from './shared/guards/anim.guard';
+import UserGuard from './shared/guards/user.guard';
+import RequestsInteceptor from './shared/interceptors/requests.interceptor';
+import LoginService from './shared/services/login.service';
 
 @NgModule({
     declarations: [
@@ -25,7 +30,14 @@ import TemplateModule from './template/template.module';
             { path: '**', redirectTo: '/error/not-found' },
         ])
     ],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: RequestsInteceptor, multi: true },
+        LoginService,
+        AnimGuard,
+        UserGuard,
+        UserGuard,
+        AdminGuard,
+    ],
     bootstrap: [AppComponent]
 })
 export default class AppModule { }

@@ -13,7 +13,14 @@ import ChatService from 'src/app/shared/services/chat.service';
     styleUrls: ['./messenger.component.css']
 })
 export default class MessengerComponent implements AfterViewInit, OnDestroy {
-    public chat: Chat;
+    public chat: Chat = {
+        dealId: '0000-0000-000000-000-000000',
+        hasUnreadMessages: true,
+        id: '0000-0000-000000-000-000000',
+        messages: [],
+        name: 'Chat 1',
+        participants: []
+    };
 
     public messageInputFormControl = new FormControl();
 
@@ -31,23 +38,23 @@ export default class MessengerComponent implements AfterViewInit, OnDestroy {
     public async ngAfterViewInit(): Promise<void> {
         this.chatId = this.route.snapshot.paramMap.get('chatId');
 
-        this.chat = await this.chatService.getChatById(this.chatId);
+        const chat = await this.chatService.getChatById(this.chatId);
 
-        this.connection = new signalR.HubConnectionBuilder()
-                .configureLogging(signalR.LogLevel.Information)
-                .withUrl(`${this.endpointService.chatUrl}messages-hub`)
-                .withAutomaticReconnect()
-                .build();
+        // this.connection = new signalR.HubConnectionBuilder()
+        //         .configureLogging(signalR.LogLevel.Information)
+        //         .withUrl(`${this.endpointService.chatUrl}messages-hub`)
+        //         .withAutomaticReconnect()
+        //         .build();
 
-        await this.connection.start();
+        // await this.connection.start();
 
-        await this.invokeSignalR();
+        // await this.invokeSignalR();
 
-        this.connection.onreconnected(() => this.invokeSignalR());
+        // this.connection.onreconnected(() => this.invokeSignalR());
 
-        this.connection.on('RecieveMessage', (receivedMessage: any) => {
-            this.chat?.messages?.push(receivedMessage);
-        });
+        // this.connection.on('RecieveMessage', (receivedMessage: any) => {
+        //     this.chat?.messages?.push(receivedMessage);
+        // });
 
         this.templateService.TurnLoaderOff();
     }
@@ -74,6 +81,15 @@ export default class MessengerComponent implements AfterViewInit, OnDestroy {
             //         telegramChatId: this.chat.telegramChatId
             //     } as Message);
             // }
+
+            this.chat.messages.push({
+                chatId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                date: new Date(Date.now()),
+                id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                sender: null,
+                senderId: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+                text: message
+            });
         } else {
 
         }

@@ -17,7 +17,18 @@ export default class LoginService {
     }
 
     public async getUser(): Promise<User> {
-        this.user = await this.http.get<User>(`${this.endpointService.accountUrl}current-user`).toPromise();
+        // this.user = await this.http.get<User>(`${this.endpointService.accountUrl}current-user`).toPromise();
+
+        this.user = {
+            applyRequests: [],
+            bio: '',
+            deals: [],
+            email: 'roma.dan2001@gmail.com',
+            fullName: 'Roman Danylevych',
+            id: 'f3d63443-e92c-4b75-b80b-d67051285dc9',
+            propositions: [],
+            tasks: [],
+        };
 
         return this.user;
     }

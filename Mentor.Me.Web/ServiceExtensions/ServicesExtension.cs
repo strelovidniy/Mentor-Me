@@ -16,10 +16,14 @@ namespace Mentor.Me.Web.ServiceExtensions
             services.AddTransient<IRepository<Proposition>, Repository<Proposition>>();
             services.AddTransient<IRepository<Skill>, Repository<Skill>>();
             services.AddTransient<IRepository<Assignment>, Repository<Assignment>>();
+            services.AddTransient<IRepository<Chat>, Repository<Chat>>();
+            services.AddTransient<IRepository<Message>, Repository<Message>>();
 
             services.AddTransient<ITaskService, TaskService>();
             services.AddTransient<ISkillService, SkillService>();
             services.AddTransient<IPropositionService, PropositionService>();
+            services.AddTransient<IChatService, ChatService>();
+            services.AddTransient<IUserService, UserService>();
         }
     }
 }
