@@ -2,13 +2,13 @@
 using System.Threading.Tasks;
 using Mentor.Me.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Task = Mentor.Me.Data.Entities.Task;
-using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
+using Assignment = Mentor.Me.Data.Entities.Assignment;
+using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
 
 namespace Mentor.Me.Web.Controllers
 {
     [Route("api/tasks")]
-    public class TaskController : Controller
+    public class TaskController : BaseApiController
     {
         private readonly ITaskService _taskService;
 
@@ -20,15 +20,15 @@ namespace Mentor.Me.Web.Controllers
             Ok(await _taskService.GetTaskByIdAsync(taskId));
 
         [HttpPost]
-        public async Task<IActionResult> AddTaskAsync(Task task) =>
+        public async Task<IActionResult> AddTaskAsync(Assignment task) =>
             Ok(await _taskService.AddTaskAsync(task));
 
         [HttpPut]
-        public async Task<IActionResult> UpdateTaskAsync(Task task) =>
+        public async Task<IActionResult> UpdateTaskAsync(Assignment task) =>
             Ok(await _taskService.UpdateTaskAsync(task));
 
         [HttpPut("{taskId:guid}/{taskStatus}")]
-        public async Task<IActionResult> UpdateTaskStatusAsync(Guid taskId, TaskStatus taskStatus) =>
+        public async Task<IActionResult> UpdateTaskStatusAsync(Guid taskId, AssignmentStatus taskStatus) =>
             Ok(await _taskService.UpdateTaskStatusAsync(taskId, taskStatus));
     }
 }

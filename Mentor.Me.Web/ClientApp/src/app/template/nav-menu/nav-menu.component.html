@@ -1,0 +1,5 @@
+<mat-selection-list #shoes [multiple]="false">
+    <mat-list-option [routerLink]="[page.routerLink]" class="nav-option" *ngFor="let page of pages" [value]="page.fullName">
+        {{page.fullName}}
+    </mat-list-option>
+</mat-selection-list>

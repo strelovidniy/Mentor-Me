@@ -9,5 +9,6 @@ namespace Mentor.Me.Data.Entities
         public Guid OwnerId { get; set; }
         public Guid PropositionId { get; set; }
         public IEnumerable<User> Members { get; set; }
+        public Chat Chat { get; set; }
     }
 }

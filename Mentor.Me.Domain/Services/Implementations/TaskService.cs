@@ -2,22 +2,22 @@
 using System.Threading.Tasks;
 using Mentor.Me.Data.Infrastructure;
 using Mentor.Me.Domain.Services.Interfaces;
-using Task = Mentor.Me.Data.Entities.Task;
-using TaskStatus = Mentor.Me.Data.Enums.TaskStatus;
+using Assignment = Mentor.Me.Data.Entities.Assignment;
+using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
 
 namespace Mentor.Me.Domain.Services.Implementations
 {
     public class TaskService : ITaskService
     {
-        private readonly IRepository<Task> _taskRepository;
+        private readonly IRepository<Assignment> _taskRepository;
 
-        public TaskService(IRepository<Task> taskRepository) =>
+        public TaskService(IRepository<Assignment> taskRepository) =>
             _taskRepository = taskRepository;
 
-        public async Task<Task> GetTaskByIdAsync(Guid goalId) =>
+        public async Task<Assignment> GetTaskByIdAsync(Guid goalId) =>
             await _taskRepository.GetByIdAsync(goalId);
 
-        public async Task<Task> AddTaskAsync(Task task)
+        public async Task<Assignment> AddTaskAsync(Assignment task)
         {
             var addedTask = await _taskRepository.AddAsync(task);
 
@@ -26,7 +26,7 @@ namespace Mentor.Me.Domain.Services.Implementations
             return addedTask;
         }
 
-        public async Task<Task> UpdateTaskAsync(Task task)
+        public async Task<Assignment> UpdateTaskAsync(Assignment task)
         {
             var updatingTask = await GetTaskByIdAsync(task.Id);
 
@@ -46,7 +46,7 @@ namespace Mentor.Me.Domain.Services.Implementations
             return updatingTask;
         }
 
-        public async Task<Task> UpdateTaskStatusAsync(Guid taskId, TaskStatus taskStatus)
+        public async Task<Assignment> UpdateTaskStatusAsync(Guid taskId, AssignmentStatus taskStatus)
         {
             var updatingTask = await GetTaskByIdAsync(taskId);
 

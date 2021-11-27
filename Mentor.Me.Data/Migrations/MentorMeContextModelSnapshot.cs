@@ -22,6 +22,21 @@ namespace Mentor.Me.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("AssignmentUser", b =>
+                {
+                    b.Property<Guid>("MembersId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TasksId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("MembersId", "TasksId");
+
+                    b.HasIndex("TasksId");
+
+                    b.ToTable("AssignmentUser");
+                });
+
             modelBuilder.Entity("DealUser", b =>
                 {
                     b.Property<Guid>("DealsId")
@@ -63,6 +78,63 @@ namespace Mentor.Me.Data.Migrations
                     b.ToTable("ApplyRequests", (string)null);
                 });
 
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Assignment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Deadline")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SkillId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("Assignments", (string)null);
+                });
+
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Chat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DealId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("HasUnreadMessages")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DealId")
+                        .IsUnique();
+
+                    b.ToTable("Chat");
+                });
+
             modelBuilder.Entity("Mentor.Me.Data.Entities.Deal", b =>
                 {
                     b.Property<Guid>("Id")
@@ -78,6 +150,34 @@ namespace Mentor.Me.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Deals", (string)null);
+                });
+
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Message", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ChatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SenderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Message");
                 });
 
             modelBuilder.Entity("Mentor.Me.Data.Entities.Proposition", b =>
@@ -131,39 +231,6 @@ namespace Mentor.Me.Data.Migrations
                     b.ToTable("Skills", (string)null);
                 });
 
-            modelBuilder.Entity("Mentor.Me.Data.Entities.Task", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Deadline")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SkillId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte>("Status")
-                        .HasColumnType("tinyint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SkillId");
-
-                    b.ToTable("Tasks", (string)null);
-                });
-
             modelBuilder.Entity("Mentor.Me.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -174,6 +241,9 @@ namespace Mentor.Me.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("ChatId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -183,6 +253,8 @@ namespace Mentor.Me.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -202,19 +274,19 @@ namespace Mentor.Me.Data.Migrations
                     b.ToTable("PropositionUser");
                 });
 
-            modelBuilder.Entity("TaskUser", b =>
+            modelBuilder.Entity("AssignmentUser", b =>
                 {
-                    b.Property<Guid>("MembersId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("Mentor.Me.Data.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("MembersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("TasksId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("MembersId", "TasksId");
-
-                    b.HasIndex("TasksId");
-
-                    b.ToTable("TaskUser");
+                    b.HasOne("Mentor.Me.Data.Entities.Assignment", null)
+                        .WithMany()
+                        .HasForeignKey("TasksId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DealUser", b =>
@@ -241,6 +313,41 @@ namespace Mentor.Me.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Assignment", b =>
+                {
+                    b.HasOne("Mentor.Me.Data.Entities.Skill", null)
+                        .WithMany("Tasks")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Chat", b =>
+                {
+                    b.HasOne("Mentor.Me.Data.Entities.Deal", null)
+                        .WithOne("Chat")
+                        .HasForeignKey("Mentor.Me.Data.Entities.Chat", "DealId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Message", b =>
+                {
+                    b.HasOne("Mentor.Me.Data.Entities.Chat", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mentor.Me.Data.Entities.User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("Mentor.Me.Data.Entities.Skill", b =>
                 {
                     b.HasOne("Mentor.Me.Data.Entities.Proposition", null)
@@ -250,13 +357,11 @@ namespace Mentor.Me.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Mentor.Me.Data.Entities.Task", b =>
+            modelBuilder.Entity("Mentor.Me.Data.Entities.User", b =>
                 {
-                    b.HasOne("Mentor.Me.Data.Entities.Skill", null)
-                        .WithMany("Tasks")
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Mentor.Me.Data.Entities.Chat", null)
+                        .WithMany("Participants")
+                        .HasForeignKey("ChatId");
                 });
 
             modelBuilder.Entity("PropositionUser", b =>
@@ -274,18 +379,16 @@ namespace Mentor.Me.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TaskUser", b =>
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Chat", b =>
                 {
-                    b.HasOne("Mentor.Me.Data.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("MembersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Messages");
 
-                    b.HasOne("Mentor.Me.Data.Entities.Task", null)
-                        .WithMany()
-                        .HasForeignKey("TasksId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("Participants");
+                });
+
+            modelBuilder.Entity("Mentor.Me.Data.Entities.Deal", b =>
+                {
+                    b.Navigation("Chat")
                         .IsRequired();
                 });
 

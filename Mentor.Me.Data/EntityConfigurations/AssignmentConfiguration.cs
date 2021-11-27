@@ -1,15 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Mentor.Me.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Task = Mentor.Me.Data.Entities.Task;
 
 namespace Mentor.Me.Data.EntityConfigurations
 {
-    internal class TaskConfiguration: IEntityTypeConfiguration<Task>
+    internal class AssignmentConfiguration: IEntityTypeConfiguration<Assignment>
     {
-        public void Configure(EntityTypeBuilder<Task> builder)
+        public void Configure(EntityTypeBuilder<Assignment> builder)
         {
             builder
-                .ToTable("Tasks");
+                .ToTable("Assignments");
 
             builder
                 .HasKey(x => x.Id);
