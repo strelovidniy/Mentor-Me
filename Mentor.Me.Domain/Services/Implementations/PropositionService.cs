@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Mentor.Me.Data.Entities;
+﻿using Mentor.Me.Data.Entities;
+using Mentor.Me.Data.Enums;
 using Mentor.Me.Data.Infrastructure;
+using Mentor.Me.Domain.Extensions.ServicesExtensions;
 using Mentor.Me.Domain.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,8 +20,19 @@ namespace Mentor.Me.Domain.Services.Implementations
             _skillService = skillService;
         }
 
-        public async Task<IEnumerable<Proposition>> GetAllPropositionsAsync() =>
-            await _propositionRepository.Query().ToListAsync();
+        public async Task<IEnumerable<Proposition>> GetOffersPropositionsAsync() =>
+            await _propositionRepository
+                .Query()
+                .Where(p => p.Type == PropositionType.Offer)
+                .IncludeMembersAndSkills()
+                .ToListAsync();
+
+        public async Task<IEnumerable<Proposition>> GetRequestsPropositionsAsync() =>
+            await _propositionRepository
+                .Query()
+                .Where(p => p.Type == PropositionType.Request)
+                .IncludeMembersAndSkills()
+                .ToListAsync();
 
         public async Task<Proposition> GetPropositionByIdAsync(Guid propositionId) =>
             await _propositionRepository.Query().FirstOrDefaultAsync(proposition => proposition.Id == propositionId);

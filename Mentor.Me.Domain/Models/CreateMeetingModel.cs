@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Mentor.Me.Domain.Models
+﻿namespace Mentor.Me.Domain.Models
 {
     public class CreateMeetingModel
     {

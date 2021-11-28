@@ -29,6 +29,7 @@ import LoginService from './shared/services/login.service';
             { path: 'chat', loadChildren: (): any => import('./chat/chat.module').then(m => m.default), pathMatch: 'prefix' },
             { path: 'about', loadChildren: (): any => import('./about/about.module').then(m => m.default), pathMatch: 'full' },
             { path: 'deals', loadChildren: (): any => import('./deals/deals.module').then(m => m.default), pathMatch: 'prefix' },
+            { path: 'requests', loadChildren: (): any => import('./requests/requests.module').then(m => m.default), pathMatch: 'prefix' },
             { path: '**', redirectTo: '/error/not-found' },
         ])
     ],

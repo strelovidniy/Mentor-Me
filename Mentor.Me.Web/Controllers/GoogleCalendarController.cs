@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Google.Apis.Auth.AspNetCore3;
+﻿using Google.Apis.Auth.AspNetCore3;
 using Google.Apis.Calendar.v3;
 using Mentor.Me.Domain.Models;
 using Mentor.Me.Domain.Services.Interfaces;

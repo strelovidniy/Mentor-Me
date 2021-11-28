@@ -11,6 +11,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a [routerLink]="'/requests'" class="nav-link">
+                    <mat-icon>assignment</mat-icon>
+                    <div class="nav-link_text">Requests</div>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a [routerLink]="'/deals'" class="nav-link">
                     <mat-icon>self_improvement</mat-icon>
                     <div class="nav-link_text">Deals</div>
@@ -33,7 +39,7 @@
 
     <nav class="nav-portrait">
         <div (click)="mobileMenuClicked()" class="dropdown">
-            <mat-icon [ngStyle]="{color: menuOpened ? '#3A98DB' : '#000', transform: menuOpened ? 'scale(2) rotate(90deg)' : 'scale(2)'}">
+            <mat-icon [ngStyle]="{color: menuOpened ? '#3A98DB' : '#000', transform: menuOpened ? 'scale(1.5) rotate(90deg)' : 'scale(1.5)'}">
                 navigate_next</mat-icon>
             <div [ngStyle]="{display: menuOpened ? 'block' : 'none'}" class="dropdown-content closing" id="dropdown-content">
                 <ul class="nav-list">
