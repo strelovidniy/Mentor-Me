@@ -12,15 +12,13 @@ export default class UserGuard implements CanActivate {
     ) { }
 
     public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
-        // const user = await this.loginService.getUser();
+        const user = await this.loginService.getUser();
 
-        // if (!user) this.loginService.login();
+        if (!user) {
+            this.loginService.login();
 
-        // if (user.role === UserRole.User || user.role === UserRole.Master || user.role === UserRole.Admin) return true;
-
-        // this.router.navigate(['api/v1/google-login']);
-
-        // return false;
+            return false;
+        }
 
         return true;
     }

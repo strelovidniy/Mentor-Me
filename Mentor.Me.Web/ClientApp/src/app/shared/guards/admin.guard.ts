@@ -12,15 +12,19 @@ export default class AdminGuard implements CanActivate {
     ) { }
 
     public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
-        // const user = await this.loginService.getUser();
+        const user = await this.loginService.getUser();
 
-        // if (!user) this.loginService.login();
+        if (!user) {
+            this.loginService.login();
 
-        // if (user.role === UserRole.Admin) return true;
+            return false;
+        }
 
-        // this.router.navigate(['error/access-denied']);
+        if (!user.isAdmin) {
+            this.router.navigate(['error/access-denied']);
 
-        // return false;
+            return false;
+        }
 
         return true;
     }

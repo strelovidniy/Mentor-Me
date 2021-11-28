@@ -3,16 +3,16 @@ import { RouterModule } from '@angular/router';
 
 import SharedModule from '../shared/shared.module';
 import AnimGuard from '../shared/guards/anim.guard';
-import ChatComponent from './chat.component';
+import AboutComponent from './about.component';
 
 @NgModule({
     declarations: [
-        ChatComponent
+        AboutComponent
     ],
     imports: [
         SharedModule,
         RouterModule.forChild([
-            { path: ':chatId', component: ChatComponent, pathMatch: 'preffix', /* canActivate: [UserGuard], */ canDeactivate: [AnimGuard] },
+            { path: '', component: AboutComponent, pathMatch: 'full', canDeactivate: [AnimGuard] },
         ]),
     ]
 })

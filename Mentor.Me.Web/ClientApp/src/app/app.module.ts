@@ -27,6 +27,8 @@ import LoginService from './shared/services/login.service';
             { path: 'admin', loadChildren: (): any => import('./admin/admin.module').then(m => m.default), pathMatch: 'prefix' },
             { path: 'error', loadChildren: (): any => import('./error/error.module').then(m => m.default), pathMatch: 'prefix' },
             { path: 'chat', loadChildren: (): any => import('./chat/chat.module').then(m => m.default), pathMatch: 'prefix' },
+            { path: 'about', loadChildren: (): any => import('./about/about.module').then(m => m.default), pathMatch: 'full' },
+            { path: 'deals', loadChildren: (): any => import('./deals/deals.module').then(m => m.default), pathMatch: 'prefix' },
             { path: '**', redirectTo: '/error/not-found' },
         ])
     ],
@@ -34,7 +36,6 @@ import LoginService from './shared/services/login.service';
         { provide: HTTP_INTERCEPTORS, useClass: RequestsInteceptor, multi: true },
         LoginService,
         AnimGuard,
-        UserGuard,
         UserGuard,
         AdminGuard,
     ],

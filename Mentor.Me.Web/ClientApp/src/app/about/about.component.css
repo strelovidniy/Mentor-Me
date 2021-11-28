@@ -19,7 +19,7 @@
     margin-top: 10px;
     justify-self: right;
     overflow-wrap: anywhere;
-    box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.44);
+    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
 }
 
 .message-input {
@@ -28,9 +28,9 @@
     margin-bottom: 2rem;
     border-radius: 15px;
     background-color: #252628;
-    box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.44);
+    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-label{
+.mat-form-field-appearance-legacy .mat-form-field-label {
     color: #fff;
 }

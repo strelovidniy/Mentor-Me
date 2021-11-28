@@ -1,11 +1,18 @@
 <div class="chat-wrapper">
-    <div class="chat-container" *ngFor="let chat of chats">
-        <mat-card matRipple class="chat-card" [ngStyle]="{'border-color': chat.hasUnreadMessages ? '#2885FF' : 'transparent'}" (click)="onChatCardClick(chat)">
-            <div class="chat-card-inner-container">
-                <mat-icon class="account-icon">account_circle</mat-icon>
-                <h3 class="chat-name">{{chat.fullName}}</h3>
-                <span matBadge="*" matBadgeOverlap="false" [ngStyle]="{'display': chat.hasUnreadMessages ? 'block' : 'none'}"></span>
-            </div>
+    <div class="message-container" [ngStyle]="{'justify-content': message.fromBot ? 'left' : 'right'}" *ngFor="let message of chat?.messages">
+        <mat-card class="message" [ngStyle]="{
+                'border-radius': message.fromBot ? '0px 15px 15px 15px' : '15px 0px 15px 15px',
+                'background-color': message.fromBot ? '#252628' : '#2885FF'
+            }">
+            {{message.text}}
         </mat-card>
     </div>
 </div>
+
+<mat-form-field class="message-input">
+    <mat-label>Message</mat-label>
+    <input matInput placeholder="Type message" (keydown.enter)="sendMessage()" [formControl]="messageInputFormControl">
+    <button mat-icon-button matSuffix (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+    </button>
+</mat-form-field>

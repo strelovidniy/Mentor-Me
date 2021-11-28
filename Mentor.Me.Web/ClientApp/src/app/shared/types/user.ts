@@ -12,4 +12,5 @@ export default class User {
     public applyRequests: ApplyRequest[];
     public deals: Deal[];
     public tasks: Assignment[];
+    public isAdmin: boolean;
 }
