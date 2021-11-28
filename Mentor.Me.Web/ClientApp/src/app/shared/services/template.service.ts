@@ -10,12 +10,9 @@ export default class TemplateService {
 
     public TurnLoaderOff(): void {
         this.loaded.next();
-        document.getElementById('bg').classList.add('loading-bg');
     }
 
     public TurnLoaderOn(): void {
         this.started.next();
-        document.getElementById('bg').style.height = '100px';
-        document.getElementById('bg').classList.remove('loading-bg');
     }
 }
