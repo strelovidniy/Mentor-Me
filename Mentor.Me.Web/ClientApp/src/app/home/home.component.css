@@ -1,19 +1,61 @@
-mat-cell.mat-cell {
-    justify-content: center;
+.cards_wrapper{
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 4rem;
 }
 
-mat-header-cell.mat-header-cell {
-    justify-content: center;
+@media only screen and (max-width: 1100px) {
+    .cards_wrapper{
+        grid-template-rows: 1fr;
+        grid-template-columns: inherit;
+    }
 }
 
-mat-table.mat-table {
-    height: calc(100vh - 164px);
+.mentor_card{
+    user-select: none;
+    box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.09);
+    padding: 2rem 2.5rem;
+    width: 90%;
+    border-radius: 1rem;
+    transition: all .5s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 
-.table-container {
-    margin: 20px 0px;
+.mentor_card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.15);
 }
 
-.mat-column-add-user {
-    cursor: pointer;
+.mentor_card .card-title{
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.mentor_card .card-mentor{
+    color: #3A98DB;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.mentor_card .card-description{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7rem;
+    text-align: end;
+}
+
+.mentor_card .apply-btn{
+    margin-top: 1rem;
+    height: 50px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all .3s ease-in-out;
+}
+
+.mentor_card .apply-btn:hover{
+    background: #3A98DB;
+    color: #fff;
 }
