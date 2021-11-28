@@ -1,15 +1,18 @@
 <div class="content-wrapper">
 
-    <mat-form-field>
-        <mat-label>
-            Find
-        </mat-label>
-        <input matInput [formControl]="filterFormControl">
-    </mat-form-field>
-
-    <button mat-button (click)="addOffer($event)">
-        Add
-    </button>
+    <div class="search-wrapper">
+        <mat-form-field class="search-form">
+            <mat-label class="search-label">
+                <mat-icon class="search-icon">search</mat-icon>
+                Search
+            </mat-label>
+            <input class="search-input" matInput [formControl]="filterFormControl">
+        </mat-form-field>
+    
+        <button class="add-btn" mat-button (click)="addOffer($event)">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 
     <div class="cards_wrapper">
         <div data-aos="fade-up" data-aos-once="true" class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let offer of offers">
