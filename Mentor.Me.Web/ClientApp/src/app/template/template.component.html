@@ -2,7 +2,7 @@
     <h1 class="title">
         Mentor<span>Me</span>
     </h1>
-    <nav class="nav">
+    <nav class="nav-landscape">
         <ul class="nav-list">
             <li class="nav-item">
                 <a href="" class="nav-link">
@@ -29,6 +29,40 @@
                 </a>
             </li>
         </ul>
+    </nav>
+
+    <nav class="nav-portrait">
+        <div (click)="mobileMenuClicked()" class="dropdown">
+            <mat-icon [ngStyle]="{color: menuOpened ? '#3A98DB' : '#000'}">navigate_next</mat-icon>
+            <div [ngStyle]="{display: menuOpened ? 'block' : 'none'}"  class="dropdown-content">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <mat-icon>home</mat-icon>
+                            <div class="nav-link_text">Home</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <mat-icon>self_improvement</mat-icon>
+                            <div class="nav-link_text">Deals</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <mat-icon>question_mark</mat-icon>
+                            <div class="nav-link_text">About</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">
+                            <mat-icon>account_circle</mat-icon>
+                            <div class="nav-link_text">Admin</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
 <div class="content">
