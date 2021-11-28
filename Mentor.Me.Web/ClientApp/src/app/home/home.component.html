@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <div class="cards_wrapper">
-        <div class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let offer of offers">
+        <div data-aos="fade-up" data-aos-once="true" class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let offer of offers">
             <h1 class="card-title">{{offer.name}}</h1>
             <h3 class="card-mentor">{{getOwnerName(offer)}}</h3>
             <p class="card-description">{{offer.description}}</p>

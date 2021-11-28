@@ -7,6 +7,7 @@ import TemplateService from '../shared/services/template.service';
     styleUrls: ['./deals.component.css']
 })
 export default class DealsComponent implements AfterViewInit {
+    public rippleColor = '#3A98DB11';
 
     public constructor(
         private templateService: TemplateService
