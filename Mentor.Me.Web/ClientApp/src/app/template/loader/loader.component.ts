@@ -36,7 +36,6 @@ export default class LoaderComponent implements OnInit, AfterViewInit, OnDestroy
 
     public fadeIn(): void {
         this.loading = true;
-
         this.loadedingStarted.emit();
     }
 
@@ -44,7 +43,6 @@ export default class LoaderComponent implements OnInit, AfterViewInit, OnDestroy
         this.loaded.emit();
 
         await new Promise(resolve => setTimeout(resolve, 500));
-
         this.loading = false;
     }
 }

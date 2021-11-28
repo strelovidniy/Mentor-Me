@@ -9,11 +9,11 @@ export default class TemplateComponent {
     public menuOpened: boolean;
 
     public onLoaded(): void {
-        document.getElementById('container').style.opacity = '1';
+        document.getElementById('loader').style.display = 'none';
     }
 
     public onLoadingStarted(): void {
-        document.getElementById('container').style.opacity = '0';
+        document.getElementById('loader').style.opacity = 'block';
     }
 
     public async mobileMenuClicked(): Promise<void> {
