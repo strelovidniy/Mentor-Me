@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export default class EndpointService {
-    public readonly chatUrl = 'https://localhost:7024/api/v1/chats/';
-    public readonly adminUrl = 'https://localhost:7024/api/v1/admin/';
-    public readonly accountUrl = 'https://localhost:7024/api/v1/account/';
-    public readonly goalsUrl = 'https://localhost:7024/api/v1/goals/';
+    public readonly chatUrl = 'api/v1/chats/';
+    public readonly adminUrl = 'api/v1/admin/';
+    public readonly accountUrl = 'api/v1/account/';
+    public readonly goalsUrl = 'api/v1/goals/';
 }

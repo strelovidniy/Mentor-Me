@@ -13,11 +13,9 @@ namespace Mentor.Me.Web.Controllers
     {
         private readonly IGoogleCalendarService _googleCalendarService;
         
-        public GoogleCalendarController(IGoogleCalendarService googleCalendarService)
-        {
+        public GoogleCalendarController(IGoogleCalendarService googleCalendarService) => 
             _googleCalendarService = googleCalendarService;
-        }
-        
+
         [Route("create")]
         [GoogleScopedAuthorize(CalendarService.ScopeConstants.CalendarEvents)]
         [GoogleScopedAuthorize(CalendarService.ScopeConstants.Calendar)]

@@ -10,11 +10,9 @@ namespace Mentor.Me.Web.Controllers
     {
         private readonly IDealService _dealService;
 
-        public DealController(IDealService dealService)
-        {
-            _dealService = dealService;
-        }
-        [Route("createDeal")]
+        public DealController(IDealService dealService) => _dealService = dealService;
+
+        [Route("create-deal")]
         public async Task<IActionResult> CreateDeal(Guid applyRequestId)
         {
             await _dealService.CreateDeal(applyRequestId);

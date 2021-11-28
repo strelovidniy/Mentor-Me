@@ -11,11 +11,9 @@ namespace Mentor.Me.Web.Controllers
     {
         private readonly IApplyRequestService _applyRequest;
 
-        public ApplyRequestController(IApplyRequestService applyRequest)
-        {
+        public ApplyRequestController(IApplyRequestService applyRequest) => 
             _applyRequest = applyRequest;
-        }
-        
+
         [HttpPost]
         public async Task<IActionResult> AddApplyRequestAsync(ApplyRequest applyRequest) =>
             Ok(await _applyRequest.AddApplyRequestAsync(applyRequest));

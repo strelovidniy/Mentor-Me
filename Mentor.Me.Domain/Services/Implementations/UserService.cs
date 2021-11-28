@@ -71,7 +71,7 @@ namespace Mentor.Me.Domain.Services.Implementations
         public async Task<User> GetUserByEmailIfExistAsync(string email, CancellationToken ct) =>
             (await _userRepository
                 .Query()
-                .FirstOrDefaultAsync(user => user.Email != null && user.Email == email, ct))!;
+                .FirstOrDefaultAsync(user => user.Email == email, ct))!;
         
         public async Task CreateNewUserIfNotExistAsync(string email, string userName, CancellationToken ct)
         {
