@@ -1,36 +1,130 @@
-.chat-wrapper {
+.deals-wrapper{
+    padding: 2rem 0;
+    display: grid;
+    gap: 4rem;
+}
+
+.mobile-mentor-name{
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .mobile-mentor-name{
+        display: block;
+        color: #3A98DB;
+    }
+
+    .deals-wrapper{
+        display: flex!important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .deal{
+        display: flex!important;
+        justify-content: center;
+        width: 80vw;
+        place-items: inherit!important;
+        margin: 0 auto;
+    }
+
+    .deal .mentor,
+    .deal .chat-bubble{
+        display: none!important;
+    }
+}
+
+.deal {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    place-items: center;
+    height: 180px;
+}
+
+.deal .mentor{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: calc(100vh - 1.25em - 140px);
-    background-color: #161719;
-    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+    margin-left: 10rem;
 }
 
-.message-container {
-    display: flex;
-    flex-direction: row;
-    align-items: unset;
+.deal .mentor mat-icon{
+    transform: scale(4);
+    color: #3A98DB;
 }
 
-.message {
-    max-width: 80%;
-    width: fit-content;
-    margin-top: 10px;
-    justify-self: right;
-    overflow-wrap: anywhere;
-    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
+.deal .mentor .mentor-name{
+    margin-top: 2.5rem;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.message-input {
-    width: 100%;
-    padding: 0 2rem;
-    margin-bottom: 2rem;
-    border-radius: 15px;
-    background-color: #252628;
-    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
+.deal .chat-bubble mat-icon{
+    transform: scale(2.5);
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-label {
+.waving-bubble{
+    color: #3A98DB;
+    animation: 1s chat-bubble infinite ease-in-out;
+}
+
+.unread-chat{
+    animation: 3s unread-chat infinite cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+
+@keyframes unread-chat {
+    0%{
+        background: #fff;
+        color: #000;
+    }
+    50%{
+        background: #3A98DB;
+        color: #fff;
+    }
+    100%{
+        background: #fff;
+        color: #000;
+    }
+}
+
+@keyframes chat-bubble {
+    0%{
+        transform: rotate(-5deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(-5deg);
+    }
+}
+
+.deal-card{
+    user-select: none;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.09);
+    padding: 2rem 2.5rem;
+    width: 70%;
+    border-radius: 1rem;
+    transition: all .5s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+
+.deal-card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.15);
+}
+
+.chat-btn{
+    width: 60%;
+    transition: all .5s ease-in-out;
+}
+
+.chat-btn:hover{
+    background: #3A98DB;
     color: #fff;
 }
