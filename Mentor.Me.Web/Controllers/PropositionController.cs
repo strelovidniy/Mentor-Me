@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Mentor.Me.Data.Entities;
+﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +12,14 @@ namespace Mentor.Me.Web.Controllers
         public PropositionController(IPropositionService propositionService) => 
             _propositionService = propositionService;
 
-        [HttpGet]
-        public async Task<IActionResult> GetPropositions() =>
-            Ok(await _propositionService.GetAllPropositionsAsync());   
-        
-        [HttpGet]
+        [HttpGet("offers")]
+        public async Task<IActionResult> GetOffers() =>
+            Ok(await _propositionService.GetOffersPropositionsAsync());
+
+
+        [HttpGet("requests")]
+        public async Task<IActionResult> GetRequests() =>
+            Ok(await _propositionService.GetRequestsPropositionsAsync());[HttpGet("{propositionId:guid}")]
         public async Task<IActionResult> GetPropositionById(Guid propositionId) =>
             Ok(await _propositionService.GetPropositionByIdAsync(propositionId));
         

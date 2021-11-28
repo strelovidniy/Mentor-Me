@@ -2,7 +2,6 @@
 using Mentor.Me.Data.Entities;
 using Mentor.Me.Domain.Services.Implementations;
 using Mentor.Me.Domain.Services.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
 using Assignment = Mentor.Me.Data.Entities.Assignment;
 
 namespace Mentor.Me.Web.ServiceExtensions

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Mentor.Me.Data.Entities
+﻿namespace Mentor.Me.Data.Entities
 {
     public class ApplyRequest : IEntity
     {

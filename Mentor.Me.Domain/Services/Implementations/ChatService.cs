@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Mentor.Me.Data.Entities;
-using Mentor.Me.Data.Enums;
+﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Data.Infrastructure;
 using Mentor.Me.Domain.Extensions.ServicesExtensions;
 using Mentor.Me.Domain.Services.Interfaces;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Mentor.Me.Data.Entities
+﻿namespace Mentor.Me.Data.Entities
 {
     public class Chat : IEntity
     {

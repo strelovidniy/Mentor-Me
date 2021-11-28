@@ -3,10 +3,6 @@ using Mentor.Me.Domain.Hubs;
 using Mentor.Me.Domain.Models;
 using Mentor.Me.Web.ServiceExtensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 

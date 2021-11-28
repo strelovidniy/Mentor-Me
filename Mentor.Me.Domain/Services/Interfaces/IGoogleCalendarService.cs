@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Google.Apis.Auth.AspNetCore3;
+﻿using Google.Apis.Auth.AspNetCore3;
 using Mentor.Me.Domain.Models;
 
 namespace Mentor.Me.Domain.Services.Interfaces

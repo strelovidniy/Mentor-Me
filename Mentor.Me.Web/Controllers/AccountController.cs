@@ -1,6 +1,4 @@
 ﻿using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
 using Mentor.Me.Domain.Services.Interfaces;
 using Mentor.Me.Web.Controllers;
 using Microsoft.AspNetCore.Authentication;
