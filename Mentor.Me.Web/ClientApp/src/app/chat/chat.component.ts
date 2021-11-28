@@ -90,6 +90,10 @@ export default class ChatComponent implements AfterViewInit {
         }
     }
 
+    public isFromOtherUser(message: Message): boolean {
+        return message?.senderId !== this.user?.id;
+    }
+
     private async invokeSignalR(): Promise<void> {
         await this.connection.invoke('EnterToGroup', this.chatId);
     }

@@ -39,5 +39,5 @@ export default class DealsComponent implements AfterViewInit {
         this.router.navigate(['/chat', deal.chat.id]);
     }
 
-    public getOwnerName = (deal: Deal): string => deal.members.find(u => u.id == deal.ownerId).fullName;
+    public getOwnerName = (deal: Deal): string => deal?.members?.find(u => u?.id == deal?.ownerId)?.fullName;
 }

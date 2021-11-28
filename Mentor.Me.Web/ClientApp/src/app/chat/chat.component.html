@@ -1,8 +1,8 @@
 <div class="chat-wrapper">
-    <div class="message-container" [ngStyle]="{'justify-content': message.fromBot ? 'left' : 'right'}" *ngFor="let message of chat?.messages">
+    <div class="message-container" [ngStyle]="{'justify-content': isFromOtherUser(message) ? 'left' : 'right'}" *ngFor="let message of chat?.messages">
         <mat-card class="message" [ngStyle]="{
-                'border-radius': message.fromBot ? '0px 15px 15px 15px' : '15px 0px 15px 15px',
-                'background-color': message.fromBot ? '#252628' : '#2885FF'
+                'border-radius': isFromOtherUser(message) ? '0px 15px 15px 15px' : '15px 0px 15px 15px',
+                'background-color': isFromOtherUser(message) ? '#252628' : '#2885FF'
             }">
             {{message.text}}
         </mat-card>
