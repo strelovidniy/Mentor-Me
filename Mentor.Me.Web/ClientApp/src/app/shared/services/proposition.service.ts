@@ -13,12 +13,12 @@ export default class PropositionService {
         private http: HttpClient
     ) { }
 
-    public getRequests(): Promise<Proposition[]> {
-        return this.http.get<Proposition[]>(`${this.endpointService.propositionsUrl}requests`).toPromise();
+    public getRequests(filter?: string): Promise<Proposition[]> {
+        return this.http.get<Proposition[]>(`${this.endpointService.propositionsUrl}requests${filter ? `?filter=${filter}` : ''}`).toPromise();
     }
 
-    public getOffers(): Promise<Proposition[]> {
-        return this.http.get<Proposition[]>(`${this.endpointService.propositionsUrl}offers`).toPromise();
+    public getOffers(filter?: string): Promise<Proposition[]> {
+        return this.http.get<Proposition[]>(`${this.endpointService.propositionsUrl}offers${filter ? `?filter=${filter}` : ''}`).toPromise();
     }
 
     public creteProposition(proposition: Proposition): Promise<Proposition> {

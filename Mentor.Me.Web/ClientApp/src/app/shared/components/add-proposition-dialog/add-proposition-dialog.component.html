@@ -1,0 +1,41 @@
+<form class="form-container">
+    <mat-form-field>
+        <mat-label>
+            Name
+        </mat-label>
+        <input matInput [formControl]="nameFormControl" name="first">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Description
+        </mat-label>
+        <textarea matInput [formControl]="descriptionFormControl" name="desc"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Price
+        </mat-label>
+        <input type="number" matInput [formControl]="priceFormControl" name="price">
+    </mat-form-field>
+    <mat-form-field *ngFor="let form of skillFormControls; index as i">
+        <mat-label>
+            Skill №{{i}} name
+        </mat-label>
+        <input matInput [formControl]="form" [name]="i">
+    </mat-form-field>
+
+    <button mat-icon-button (click)="addSkill()">
+        <mat-icon>
+            add_circle_outline
+        </mat-icon>
+    </button>
+
+    <div class="button-container">
+        <button mat-button (click)="confirm()">
+            Confirm
+        </button>
+        <button mat-button (click)="discard()">
+            Discard
+        </button>
+    </div>
+</form>

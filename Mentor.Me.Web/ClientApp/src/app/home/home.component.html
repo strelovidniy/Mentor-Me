@@ -1,4 +1,16 @@
 <div class="content-wrapper">
+
+    <mat-form-field>
+        <mat-label>
+            Find
+        </mat-label>
+        <input matInput [formControl]="filterFormControl">
+    </mat-form-field>
+
+    <button mat-button (click)="addOffer($event)">
+        Add
+    </button>
+
     <div class="cards_wrapper">
         <div data-aos="fade-up" data-aos-once="true" class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let offer of offers">
             <h1 class="card-title">{{offer.name}}</h1>

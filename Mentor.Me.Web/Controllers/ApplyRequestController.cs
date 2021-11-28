@@ -4,25 +4,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
 {
-    [Route("api/applyRequests")]
+    [Route("api/v1/apply-requests")]
     public class ApplyRequestController : ControllerBase
     {
-        private readonly IApplyRequestService _applyRequest;
+        private readonly IApplyRequestService _applyRequestService;
 
-        public ApplyRequestController(IApplyRequestService applyRequest) => 
-            _applyRequest = applyRequest;
+        public ApplyRequestController(IApplyRequestService applyRequest) =>
+            _applyRequestService = applyRequest;
 
         [HttpPost]
         public async Task<IActionResult> AddApplyRequestAsync(ApplyRequest applyRequest) =>
-            Ok(await _applyRequest.AddApplyRequestAsync(applyRequest));
+            Ok(await _applyRequestService.AddApplyRequestAsync(applyRequest));
         
         [HttpGet("{applyRequestGuid:guid}")]
         public async Task<IActionResult> GetApplyRequestByIdAsync(Guid applyRequestGuid) =>
-            Ok(await _applyRequest.GetApplyRequestById(applyRequestGuid));
-        
-        [HttpGet("{applyRequestGuid:guid}")]
+            Ok(await _applyRequestService.GetApplyRequestById(applyRequestGuid));
+
+        [HttpGet("{prepositionId:guid}")]
         public async Task<IActionResult> GetApplyRequestsByPrepositionAsync(Guid prepositionId) =>
-            Ok(await _applyRequest.GetApplyRequestForPropositionAsync(prepositionId));
-        
+            Ok(await _applyRequestService.GetApplyRequestForPropositionAsync(prepositionId));
+
+        [HttpGet("by-user/{userId:guid}")]
+        public async Task<IActionResult> GetApplyRequestsByUserIdAsync(Guid userId) =>
+            Ok(await _applyRequestService.GetApplyRequestsByUserIdAsync(userId));
     }
 }

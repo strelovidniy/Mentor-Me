@@ -14,13 +14,13 @@ namespace Mentor.Me.Web.Controllers
             _propositionService = propositionService;
 
         [HttpGet("offers"), AllowAnonymous]
-        public async Task<IActionResult> GetOffers() =>
-            Ok(await _propositionService.GetOffersPropositionsAsync());
+        public async Task<IActionResult> GetOffers([FromQuery] string? filter) =>
+            Ok(await _propositionService.GetOffersPropositionsAsync(filter));
 
 
         [HttpGet("requests"), AllowAnonymous]
-        public async Task<IActionResult> GetRequests() =>
-            Ok(await _propositionService.GetRequestsPropositionsAsync());[HttpGet("{propositionId:guid}")]
+        public async Task<IActionResult> GetRequests([FromQuery] string? filter) =>
+            Ok(await _propositionService.GetRequestsPropositionsAsync(filter));
 
         [HttpGet("{propositionId:guid}"), AllowAnonymous]
         public async Task<IActionResult> GetPropositionById(Guid propositionId) =>
