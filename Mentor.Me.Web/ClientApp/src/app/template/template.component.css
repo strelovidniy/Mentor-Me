@@ -111,13 +111,50 @@ mat-toolbar {
     }
 
     .nav-portrait .dropdown mat-icon{
-        transform: scale(2) rotate(90deg);
-        transition: all .3s ease;
+        transition: all .5s cubic-bezier(0.68,-0.55,0.27,1.55);
     }
 
     .nav-portrait .dropdown .dropdown-content{
+        padding: 1rem;
+        border-radius: 2rem 0 2rem 2rem;
         position: absolute;
         right: -65%;
+        background: #fff;
+        box-shadow: 0px 3px 17px 5px rgba(0,0,0,0.09);
+    }
+
+    .opening{
+        animation: growDown .3s ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    .closing{
+        animation: growUp .3s ease-in-out forwards;
+        transform-origin: top center;
+    }
+
+    @keyframes growDown {
+        0% {
+          transform: scaleY(0)
+        }
+        80% {
+          transform: scaleY(1.1)
+        }
+        100% {
+          transform: scaleY(1)
+        }
+    }
+
+    @keyframes growUp {
+        0% {
+          transform: scaleY(1)
+        }
+        80% {
+          transform: scaleY(1.1)
+        }
+        100% {
+          transform: scaleY(0)
+        }
     }
 
     .nav-portrait .dropdown .dropdown-content .nav-list {

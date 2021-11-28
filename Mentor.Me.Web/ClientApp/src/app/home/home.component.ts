@@ -7,6 +7,7 @@ import TemplateService from '../shared/services/template.service';
     styleUrls: ['./home.component.css']
 })
 export default class HomeComponent implements AfterViewInit {
+    public rippleColor = '#3A98DB11';
 
     public constructor (
         private templateService: TemplateService

@@ -33,8 +33,9 @@
 
     <nav class="nav-portrait">
         <div (click)="mobileMenuClicked()" class="dropdown">
-            <mat-icon [ngStyle]="{color: menuOpened ? '#3A98DB' : '#000'}">navigate_next</mat-icon>
-            <div [ngStyle]="{display: menuOpened ? 'block' : 'none'}" class="dropdown-content">
+            <mat-icon [ngStyle]="{color: menuOpened ? '#3A98DB' : '#000', transform: menuOpened ? 'scale(2) rotate(90deg)' : 'scale(2)'}">
+                navigate_next</mat-icon>
+            <div [ngStyle]="{display: menuOpened ? 'block' : 'none'}" class="dropdown-content closing" id="dropdown-content">
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="" class="nav-link">
