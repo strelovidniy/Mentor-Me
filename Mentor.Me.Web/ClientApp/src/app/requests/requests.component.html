@@ -8,7 +8,7 @@
             </mat-label>
             <input class="search-input" matInput [formControl]="filterFormControl">
         </mat-form-field>
-    
+
         <button class="add-btn" mat-button (click)="add($event)">
             <mat-icon>add</mat-icon>
         </button>
@@ -16,7 +16,7 @@
 
     <div class="cards_wrapper">
         <div class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let request of requests">
-            <h1 class="card-title">request.name</h1>
+            <h1 class="card-title">{{request.name}}</h1>
             <h3 class="card-mentor">{{getOwnerName(request)}}</h3>
             <p class="card-description">{{request.description}}</p>
             <button mat-button class="apply-btn">Apply</button>
