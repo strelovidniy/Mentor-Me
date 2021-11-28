@@ -16,7 +16,15 @@ export default class TemplateComponent {
         document.getElementById('container').style.opacity = '0';
     }
 
-    public mobileMenuClicked(): void {
+    public async mobileMenuClicked(): Promise<void> {
+        if (this.menuOpened == true){
+            document.getElementById('dropdown-content').classList.remove('opening');
+            document.getElementById('dropdown-content').classList.add('closing');
+        } else {
+            document.getElementById('dropdown-content').classList.remove('closing');
+            document.getElementById('dropdown-content').classList.add('opening');
+        }
+        await new Promise(resolve => setTimeout(resolve, 300));
         this.menuOpened = !this.menuOpened;
     }
 }
