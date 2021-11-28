@@ -26,42 +26,12 @@
     }
 }
 
-.app-name {
-    font-size: 24px;
-    margin-left: 1rem;
-}
-
-.icon {
-    margin: 0 .5rem;
-}
-
-.tg-btn,
-.fav-btn {
-    transition: all .3s ease;
-}
-
-.tg-btn:hover {
-    color: #2885FF;
-}
-
-.fav-btn:hover {
-    color: #e32d70;
-}
-
-.menu-btn {
-    transition: all .3s ease;
-}
-
-.menu-btn:hover {
-    transform: scale(1.05);
-}
-
 .loader {
     position: absolute;
-    top: calc(50% - 50px);
-    left: calc(50% - 50px);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     z-index: 2;
-    width: 300px;
 }
 
 .content {
