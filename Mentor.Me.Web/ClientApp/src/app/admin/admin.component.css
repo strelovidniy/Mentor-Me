@@ -7,7 +7,7 @@ mat-header-cell.mat-header-cell {
 }
 
 mat-table.mat-table {
-    height: calc(100vh - 164px);
+    height: calc(100vh - 480px);
 }
 
 .table-container {
