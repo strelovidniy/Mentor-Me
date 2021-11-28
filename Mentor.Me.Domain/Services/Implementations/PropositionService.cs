@@ -20,17 +20,17 @@ namespace Mentor.Me.Domain.Services.Implementations
             _skillService = skillService;
         }
 
-        public async Task<IEnumerable<Proposition>> GetOffersPropositionsAsync() =>
+        public async Task<IEnumerable<Proposition>> GetOffersPropositionsAsync(string? filter) =>
             await _propositionRepository
                 .Query()
-                .Where(p => p.Type == PropositionType.Offer)
+                .Where(p => p.Type == PropositionType.Offer && (filter == null || p.Name.Contains(filter) || p.Description.Contains(filter)))
                 .IncludeMembersAndSkills()
                 .ToListAsync();
 
-        public async Task<IEnumerable<Proposition>> GetRequestsPropositionsAsync() =>
+        public async Task<IEnumerable<Proposition>> GetRequestsPropositionsAsync(string? filter) =>
             await _propositionRepository
                 .Query()
-                .Where(p => p.Type == PropositionType.Request)
+                .Where(p => p.Type == PropositionType.Request && (filter == null || p.Name.Contains(filter) || p.Description.Contains(filter)))
                 .IncludeMembersAndSkills()
                 .ToListAsync();
 

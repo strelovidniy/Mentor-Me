@@ -1,4 +1,16 @@
 <div class="content-wrapper">
+
+    <mat-form-field>
+        <mat-label>
+            Find
+        </mat-label>
+        <input matInput [formControl]="filterFormControl">
+    </mat-form-field>
+
+    <button mat-button>
+        Add
+    </button>
+
     <div class="cards_wrapper">
         <div class="mentor_card" matRipple [matRippleColor]="rippleColor" *ngFor="let request of requests">
             <h1 class="card-title">request.name</h1>

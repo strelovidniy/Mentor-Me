@@ -7,5 +7,6 @@ namespace Mentor.Me.Domain.Services.Interfaces
         Task<ApplyRequest> AddApplyRequestAsync(ApplyRequest applyRequest);
         Task<ApplyRequest> GetApplyRequestById(Guid goalId);
         Task<IEnumerable<ApplyRequest>> GetApplyRequestForPropositionAsync(Guid propositionId);
+        Task<IEnumerable<IEnumerable<ApplyRequest>>> GetApplyRequestsByUserIdAsync(Guid userId);
     }
 }
