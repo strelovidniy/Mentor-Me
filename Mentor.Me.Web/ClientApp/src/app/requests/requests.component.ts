@@ -23,4 +23,6 @@ export default class RequestsComponent implements AfterViewInit {
 
         this.templateService.TurnLoaderOff();
     }
+
+    public getOwnerName = (request: Proposition): string => request.members.find(u => u.id === request.ownerId).fullName;
 }
