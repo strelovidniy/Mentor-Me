@@ -14,7 +14,7 @@ namespace Mentor.Me.Web.Controllers
         public GoogleCalendarController(IGoogleCalendarService googleCalendarService) => 
             _googleCalendarService = googleCalendarService;
 
-        [Route("create")]
+        [HttpPost("create")]
         [GoogleScopedAuthorize(CalendarService.ScopeConstants.CalendarEvents)]
         [GoogleScopedAuthorize(CalendarService.ScopeConstants.Calendar)]
         public async Task<IActionResult> CreateMeeting([FromServices] IGoogleAuthProvider auth, [FromBody]CreateMeetingModel model, CancellationToken ct)

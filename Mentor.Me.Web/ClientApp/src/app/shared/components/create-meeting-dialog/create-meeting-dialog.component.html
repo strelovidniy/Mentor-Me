@@ -1,0 +1,24 @@
+<form class="form-container">
+    <mat-form-field>
+        <mat-label>
+            Name
+        </mat-label>
+        <input matInput [formControl]="nameFormControl" name="summary">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Description
+        </mat-label>
+        <input matInput [formControl]="descriptionFormControl" name="description">
+    </mat-form-field>
+
+
+    <div class="button-container">
+        <button mat-button (click)="confirm()">
+            Confirm
+        </button>
+        <button mat-button (click)="discard()">
+            Discard
+        </button>
+    </div>
+</form>

@@ -4,27 +4,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import AddPropositionDialogComponent from './components/add-proposition-dialog/add-proposition-dialog.component';
 import ConfirmDialogComponent from './components/confirm-dialog/confirm-dialog.component';
+import CreateMeetingDialogComponent from './components/create-meeting-dialog/create-meeting-dialog.component';
 
 import MaterialModule from './material.module';
 
 @NgModule({
     declarations: [
         ConfirmDialogComponent,
-        AddPropositionDialogComponent
+        AddPropositionDialogComponent,
+        CreateMeetingDialogComponent
     ],
     imports: [
         FormsModule,
         MaterialModule,
         CommonModule,
         RouterModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     exports: [
         FormsModule,
         MaterialModule,
         CommonModule,
         RouterModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ]
 })
 export default class SharedModule { }

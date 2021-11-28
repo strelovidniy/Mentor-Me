@@ -11,6 +11,7 @@ namespace Mentor.Me.Domain.Extensions.ServicesExtensions
                 .ThenInclude(e => e.Messages)
                 .ThenInclude(e => e.Sender)
                 .Include(e => e.Chat)
-                .ThenInclude(e => e.Participants);
+                .ThenInclude(e => e.Participants)
+                .Include(e => e.Members);
     }
 }
