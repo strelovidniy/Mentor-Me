@@ -50,6 +50,8 @@ export default class DealsComponent implements AfterViewInit {
     public async scheduleMeeting(deal: Deal): Promise<void> {
         const res: CreateMeetingModel = await this.dialog.open(CreateMeetingDialogComponent).afterClosed().toPromise();
 
+        console.dir(res);
+
         if (res) {
             res.emails = deal.members.map(u => u.email);
 
