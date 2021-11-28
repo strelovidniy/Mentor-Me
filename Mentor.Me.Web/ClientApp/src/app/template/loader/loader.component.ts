@@ -43,7 +43,7 @@ export default class LoaderComponent implements OnInit, AfterViewInit, OnDestroy
     public async fadeOut(): Promise<void> {
         this.loaded.emit();
 
-        document.getElementById('bg').style.height = '100px';
+        document.getElementById('bg').style.height = '300px';
 
         await new Promise(resolve => setTimeout(resolve, 500));
         this.loading = false;
