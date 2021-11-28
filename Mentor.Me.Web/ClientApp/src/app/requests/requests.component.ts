@@ -50,14 +50,21 @@ export default class RequestsComponent implements AfterViewInit {
     public async add(event: any): Promise<void> {
         event.stopPropagation();
 
-        this.propositionService.creteProposition({ ...await this.dialog.open(AddPropositionDialogComponent, {
+        const res = await this.dialog.open(AddPropositionDialogComponent, {
             data: {
                 type: PropositionType.Request
             },
             width: '400px'
-        }).afterClosed().toPromise(),
-        ownerId: this.user.id,
-        members: [this.user]
-        });
+        }).afterClosed().toPromise();
+
+        if (res) {
+
+            this.propositionService.creteProposition({ ...res,
+                ownerId: this.user.id,
+                members: [this.user]
+            });
+
+            await this.getRequests();
+        }
     }
 }

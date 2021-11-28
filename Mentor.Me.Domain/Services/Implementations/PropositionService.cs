@@ -39,9 +39,7 @@ namespace Mentor.Me.Domain.Services.Implementations
 
         public async Task<Proposition> AddPropositionAsync(Proposition proposition)
         {
-            _skillService.AddSkillsAsync(proposition.Skills);
-
-            var addedProposition = await _propositionRepository.AddAsync(proposition);
+            var addedProposition = await _propositionRepository.UpdateAsync(proposition);
 
             await _propositionRepository.SaveChangesAsync();
 

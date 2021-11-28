@@ -55,14 +55,21 @@ export default class HomeComponent implements OnInit, AfterViewInit {
     public async addOffer(event: any): Promise<void> {
         event.stopPropagation();
 
-        this.propositionService.creteProposition({ ...await this.dialog.open(AddPropositionDialogComponent, {
+        const res = await this.dialog.open(AddPropositionDialogComponent, {
             data: {
                 type: PropositionType.Offer
             },
             width: '400px'
-        }).afterClosed().toPromise(),
-        ownerId: this.user.id,
-        members: [this.user]
-        });
+        }).afterClosed().toPromise();
+
+        if (res) {
+
+            this.propositionService.creteProposition({ ...res,
+                ownerId: this.user.id,
+                members: [this.user]
+            });
+
+            await this.getOffers();
+        }
     }
 }

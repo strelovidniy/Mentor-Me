@@ -10,4 +10,5 @@ export default class EndpointService {
     public readonly goalsUrl = `${location.origin.includes('localhost') ? 'https://localhost:7024/' : ''}api/v1/goals/`;
     public readonly propositionsUrl = `${location.origin.includes('localhost') ? 'https://localhost:7024/' : ''}api/v1/propositions/`;
     public readonly dealsUrl = `${location.origin.includes('localhost') ? 'https://localhost:7024/' : ''}api/v1/deals/`;
+    public readonly googleCalendarUrl = `${location.origin.includes('localhost') ? 'https://localhost:7024/' : ''}api/v1/calendar/`;
 }

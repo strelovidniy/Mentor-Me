@@ -34,7 +34,7 @@ namespace Mentor.Me.Data.Migrations
 
                     b.HasIndex("TasksId");
 
-                    b.ToTable("AssignmentUser");
+                    b.ToTable("AssignmentUser", (string)null);
                 });
 
             modelBuilder.Entity("DealUser", b =>
@@ -49,7 +49,7 @@ namespace Mentor.Me.Data.Migrations
 
                     b.HasIndex("MembersId");
 
-                    b.ToTable("DealUser");
+                    b.ToTable("DealUser", (string)null);
                 });
 
             modelBuilder.Entity("Mentor.Me.Data.Entities.ApplyRequest", b =>
@@ -132,7 +132,7 @@ namespace Mentor.Me.Data.Migrations
                     b.HasIndex("DealId")
                         .IsUnique();
 
-                    b.ToTable("Chat");
+                    b.ToTable("Chat", (string)null);
                 });
 
             modelBuilder.Entity("Mentor.Me.Data.Entities.Deal", b =>
@@ -177,7 +177,7 @@ namespace Mentor.Me.Data.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Message");
+                    b.ToTable("Message", (string)null);
                 });
 
             modelBuilder.Entity("Mentor.Me.Data.Entities.Proposition", b =>
@@ -274,7 +274,7 @@ namespace Mentor.Me.Data.Migrations
 
                     b.HasIndex("PropositionsId");
 
-                    b.ToTable("PropositionUser");
+                    b.ToTable("PropositionUser", (string)null);
                 });
 
             modelBuilder.Entity("AssignmentUser", b =>
