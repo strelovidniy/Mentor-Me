@@ -1,36 +1,134 @@
-.chat-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: calc(100vh - 1.25em - 140px);
-    background-color: #161719;
-    padding: 2rem;
+.about_wrapper{
+    margin-top: 3rem;
 }
 
-.message-container {
-    display: flex;
-    flex-direction: row;
-    align-items: unset;
-}
-
-.message {
-    max-width: 80%;
-    width: fit-content;
-    margin-top: 10px;
-    justify-self: right;
-    overflow-wrap: anywhere;
-    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
-}
-
-.message-input {
+.about{
     width: 100%;
-    padding: 0 2rem;
-    margin-bottom: 2rem;
-    border-radius: 15px;
-    background-color: #252628;
-    box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.44);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 2fr;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-label {
+@media only screen and (max-width: 1550px) {
+    .about{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: inherit;
+        padding: 0 5rem;
+    }
+
+    .about h2{
+        text-align: center;
+        font-size: 2vw;
+        margin: 1rem 0;
+    }
+
+    .show-steps{
+        margin-top: 1rem!important;
+    }
+
+    .steps_wrapper{
+        padding: 0 3rem;
+    }
+}
+
+h2{
+    font-size: 28px;
+    text-align: end;
+    margin: 2rem 0;
+    line-height: 2.5rem;
+}
+
+.show-steps{
+    border-bottom: 1px solid #3A98DB;
+    padding: 1rem 2rem;
+    font-size: 24px;
+    margin-top: 4rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.image{
+    width: 400px;
+    margin: 0 auto;
+    height: 100%;
+    background: url("https://images.unsplash.com/photo-1522881193457-37ae97c905bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-position: center;
+    background-size: cover;
+}
+
+.controls button{
+    margin: 0 3rem;
+    padding: 2rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.controls button mat-icon{
+    transform: scale(2);
+}
+
+.steps{
+    position: relative;
+    height: 60vh;
+    margin-top: 10rem;
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 100%;
+    background: #3A98DB;
+
+    display: grid;
+    place-items: center;
     color: #fff;
+    font-weight: 700;
+    font-size: 34px;
+}
+
+.first-step{
+    position: absolute;
+    left: 0;
+}
+
+.second-step{
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    flex-direction: row-reverse;
+}
+
+.third-step{
+    position: absolute;
+    left: 10%;
+    top: 50%;
+}
+
+.fourth-step{
+    position: absolute;
+    right: 15%;
+    top: 80%;
+    flex-direction: row-reverse;
+}
+
+.step{
+    display: flex;
+    align-items: center;
+}
+
+.step h1{
+    margin: 0 2rem;
+    font-weight: 500;
+    font-size: 28px;
 }

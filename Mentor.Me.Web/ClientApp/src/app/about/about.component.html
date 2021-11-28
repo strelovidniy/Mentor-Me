@@ -1,1 +1,58 @@
-<span style="font-size: 300px;">ABOUT</span>
+<div class="content-wrapper">
+    <div class="about_wrapper" [ngStyle]="{display: isShowingSteps ? 'none' : 'block'}">
+        <div class="about">
+            <div class="image"></div>
+            <div class="text">
+                <h2>Mentor.Me aligns the goals of our mentors with the goals of mentee so that outcomes are better and everyone grows in the same direction. You’ll find tools to develop your skills, evolve your business, and gain the control and freedom you need for success.</h2>
+                <h2>Talking about business, use this workforce to build faster and transform your business by finding a metor for your team or hiring new talents here. On the other hand, if you’re independent mentee that’s come here to realize your potential, know that you can become a valuable and instrumental part of someone’s team.</h2>
+                <h2>You get what you pay for mentoring. And we can prove it. Use it to securely send and receive messages, adding tasks, give real-time feedback and make payments. We charge mentors and mentees a 2% service fee and 20% service fee is for companies that hires a mentee</h2>
+            </div>
+        </div>
+        <button class="show-steps" mat-button (click)="toggleSteps()">Show me steps</button>
+    </div>
+    <div class="steps_wrapper" [ngStyle]="{display: isShowingSteps ? 'block' : 'none'}">
+        <div class="controls">
+            <button mat-button (click)="typeChoosed()">
+                <mat-icon>{{isStudent ? 'auto_stories' : 'work'}}</mat-icon>
+            </button>
+        </div>
+        <div class="steps">
+            <div class="student" *ngIf="isStudent">
+                <div class="step first-step">
+                    <div class="circle">1</div>
+                    <h1>Sign In/Sign Up</h1>
+                </div>
+                <div class="step second-step">
+                    <div class="circle">2</div>
+                    <h1>Choose your mentor</h1>
+                </div>
+                <div class="step third-step">
+                    <div class="circle">3</div>
+                    <h1>Pay a price of the mentor's time with 2% commision</h1>
+                </div>
+                <div class="step fourth-step">
+                    <div class="circle">4</div>
+                    <h1>Learn</h1>
+                </div>
+            </div>
+            <div class="mentor" *ngIf="!isStudent">
+                <div class="step first-step">
+                    <div class="circle">1</div>
+                    <h1>Sign In/Sign Up</h1>
+                </div>
+                <div class="step second-step">
+                    <div class="circle">2</div>
+                    <h1>Make a beautiful profile with all needed information</h1>
+                </div>
+                <div class="step third-step">
+                    <div class="circle">3</div>
+                    <h1>Claim a request from a student</h1>
+                </div>
+                <div class="step fourth-step">
+                    <div class="circle">4</div>
+                    <h1>Withdraw your money payed a 2% commision</h1>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>

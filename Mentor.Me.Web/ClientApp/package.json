@@ -30,6 +30,7 @@
         "@angular/platform-server": "~13.0.2",
         "@angular/router": "~13.0.2",
         "@microsoft/signalr": "^6.0.0",
+        "angular-responsive-carousel": "^2.1.2",
         "aos": "^2.3.4",
         "bootstrap": "^5.1.0",
         "jquery": "^3.5.1",
