@@ -59,3 +59,38 @@
     background: #3A98DB;
     color: #fff;
 }
+
+.search-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.search-form{
+    width: 300px;
+    font-size: 20px;
+}
+
+.search-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon{
+    margin-bottom: .3rem;
+    margin-right: .3rem;
+}
+
+.add-btn{
+    height: 50px;
+    width: 50px;
+    display: grid;
+    place-items: center;
+    margin-left: 1rem;
+}
+
+.add-btn:hover{
+    color: #3A98DB;
+    background: transparent;
+}
