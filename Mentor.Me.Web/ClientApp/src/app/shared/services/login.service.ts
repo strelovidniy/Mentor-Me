@@ -7,7 +7,7 @@ import EndpointService from './endpoint.service';
     providedIn: 'root'
 })
 export default class LoginService {
-    private user: User;
+    public user: User;
 
     public constructor(
         private endpointService: EndpointService,

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import LoginService from '../shared/services/login.service';
+import User from '../shared/types/user';
 
 @Component({
     selector: 'app-template',
@@ -6,6 +8,15 @@ import { Component } from '@angular/core';
     styleUrls: ['./template.component.css']
 })
 export default class TemplateComponent {
+
+    public get user(): User {
+        return this.loginService.user;
+    }
+
+    public constructor(
+        private loginService: LoginService
+    ) { }
+
     public menuOpened: boolean;
 
     public onLoaded(): void {

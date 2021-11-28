@@ -1,6 +1,6 @@
 <header class="header">
     <h1 class="title">
-    Mentor<span>Me</span>
+        Mentor<span>Me</span>
     </h1>
     <nav class="nav-landscape">
         <ul class="nav-list">
@@ -28,7 +28,7 @@
                     <div class="nav-link_text">About</div>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="user.isAdmin">
                 <a [routerLink]="'/admin'" class="nav-link">
                     <mat-icon>account_circle</mat-icon>
                     <div class="nav-link_text">Admin</div>
