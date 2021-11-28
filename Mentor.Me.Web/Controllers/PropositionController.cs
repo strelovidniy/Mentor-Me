@@ -1,5 +1,6 @@
 ﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Domain.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mentor.Me.Web.Controllers
@@ -12,18 +13,20 @@ namespace Mentor.Me.Web.Controllers
         public PropositionController(IPropositionService propositionService) => 
             _propositionService = propositionService;
 
-        [HttpGet("offers")]
+        [HttpGet("offers"), AllowAnonymous]
         public async Task<IActionResult> GetOffers() =>
             Ok(await _propositionService.GetOffersPropositionsAsync());
 
 
-        [HttpGet("requests")]
+        [HttpGet("requests"), AllowAnonymous]
         public async Task<IActionResult> GetRequests() =>
             Ok(await _propositionService.GetRequestsPropositionsAsync());[HttpGet("{propositionId:guid}")]
+
+        [HttpGet("{propositionId:guid}"), AllowAnonymous]
         public async Task<IActionResult> GetPropositionById(Guid propositionId) =>
             Ok(await _propositionService.GetPropositionByIdAsync(propositionId));
         
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public async Task<IActionResult> AddProposition(Proposition proposition) =>
             Ok(await _propositionService.AddPropositionAsync(proposition));
     }

@@ -1,6 +1,8 @@
 ﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Data.Infrastructure;
+using Mentor.Me.Domain.Extensions.ServicesExtensions;
 using Mentor.Me.Domain.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mentor.Me.Domain.Services.Implementations
 {
@@ -11,7 +13,12 @@ namespace Mentor.Me.Domain.Services.Implementations
         private readonly IRepository<User> _userRepository;
         private readonly IRepository<Proposition> _propositionRepository;
 
-        public DealService(IRepository<ApplyRequest> applyRequestRepository, IRepository<Deal> dealRepository, IRepository<User> userRepository, IRepository<Proposition> propositionRepository)
+        public DealService(
+            IRepository<ApplyRequest> applyRequestRepository,
+            IRepository<Deal> dealRepository,
+            IRepository<User> userRepository,
+            IRepository<Proposition> propositionRepository
+        )
         {
             _applyRequestRepository = applyRequestRepository;
             _dealRepository = dealRepository;
@@ -26,7 +33,7 @@ namespace Mentor.Me.Domain.Services.Implementations
 
             var user = await _userRepository.GetByIdAsync(applyRequest.OwnerId);
             var owner = await _userRepository.GetByIdAsync(proposition.OwnerId);
-            
+
             var deal = _dealRepository.Query().FirstOrDefault(x => x.PropositionId == applyRequest.PropositionId);
             if (deal == null)
             {
@@ -34,10 +41,10 @@ namespace Mentor.Me.Domain.Services.Implementations
                 {
                     OwnerId = proposition.OwnerId,
                     PropositionId = proposition.Id,
-                    Members = new[] {user, owner},
+                    Members = new[] { user, owner },
                     Chat = new Chat
                     {
-                        Participants = new[] {user, owner},
+                        Participants = new[] { user, owner },
                         Name = $"{proposition.Name} chat",
                         HasUnreadMessages = false,
                         Messages = new List<Message>(),
@@ -54,5 +61,18 @@ namespace Mentor.Me.Domain.Services.Implementations
 
             return deal;
         }
+
+        public Task<Deal> GetDealByIdAsync(Guid dealId) =>
+            _dealRepository
+                .Query()
+                .IncludeChatAndParticipants()
+                .FirstOrDefaultAsync(d => d.Id == dealId)!;
+
+        public async Task<IEnumerable<Deal>> GetDealsByUserIdAsync(Guid userId) =>
+            await _dealRepository
+                .Query()
+                .IncludeChatAndParticipants()
+                .Where(d => d.OwnerId == userId || d.Members.Any(m => m.Id == userId))
+                .ToListAsync();
     }
 }
