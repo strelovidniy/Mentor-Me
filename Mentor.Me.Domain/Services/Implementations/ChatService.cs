@@ -21,18 +21,6 @@ namespace Mentor.Me.Domain.Services.Implementations
                 .IncludeMessages()
                 .IncludeParticipants()
                 .FirstOrDefaultAsync(chat => chat.Id == chatId)!;
-        
-        public async Task<IEnumerable<Chat>> GetUnreadChatsByUserIdAsync(Guid userId) =>
-            await _chatRepository
-                .Query()
-                .Where(chat => chat.HasUnreadMessages)
-                .ToListAsync();
-
-        public async Task<IEnumerable<Chat>> GetReadChatsByUserIdAsync(Guid userId) =>
-            await _chatRepository
-                .Query()
-                .Where(chat => !chat.HasUnreadMessages)
-                .ToListAsync();
 
         public async Task<Message> AddMessageToChatAsync(Message message)
         {

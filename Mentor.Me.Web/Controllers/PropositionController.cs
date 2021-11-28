@@ -11,11 +11,9 @@ namespace Mentor.Me.Web.Controllers
     {
         private readonly IPropositionService _propositionService;
 
-        public PropositionController(IPropositionService propositionService)
-        {
+        public PropositionController(IPropositionService propositionService) => 
             _propositionService = propositionService;
-        }
-        
+
         [HttpGet]
         public async Task<IActionResult> GetPropositions() =>
             Ok(await _propositionService.GetAllPropositionsAsync());   

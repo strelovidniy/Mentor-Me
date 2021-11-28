@@ -16,44 +16,27 @@ namespace Mentor.Me.Web.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
-        {
+        public UserController(IUserService userService) => 
             _userService = userService;
-        }
-        
+
         [Authorize]
-        [HttpGet("users")]
+        [HttpGet]
         public async Task<IActionResult> GetUsersAsync() =>
             Ok(await _userService.GetAllAsync());
         
         [Authorize]
-        [HttpPut("users")]
+        [HttpPut]
         public async Task<IActionResult> UpdateUserAsync([FromBody] User user) =>
             Ok(await _userService.UpdateUserAsync(user));
 
         [Authorize]
-        [HttpPost("users")]
+        [HttpPost]
         public async Task<IActionResult> AddUserAsync([FromBody] User user) =>
             Ok(await _userService.AddUserAsync(user));
 
         [Authorize]
-        [HttpDelete("users/{userId:guid}")]
+        [HttpDelete("{userId:guid}")]
         public async Task<IActionResult> DeleteUserByIdAsync(Guid userId) =>
             Ok(await _userService.RemoveUserByIdAsync(userId));
-        
-        [Route("authenticate")]
-        public IActionResult GoogleLogin()
-        {
-            var authProperties = new AuthenticationProperties { RedirectUri = Url.Action("RedirectUrl") };
-            return Challenge(authProperties, GoogleDefaults.AuthenticationScheme);
-        }
-        
-        [Route("redirectUrl")]
-        public async Task<IActionResult> RedirectUrl(CancellationToken ct)
-        {
-            await _userService.CreateNewUserIfNotExistAsync(User.FindFirst(ClaimTypes.Email)?.Value,
-                User.FindFirst(ClaimTypes.Name)?.Value, ct);
-            return RedirectPermanent($"{GetHostUrl()}");
-        }
     }
 }
