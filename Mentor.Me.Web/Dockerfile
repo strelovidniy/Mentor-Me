@@ -11,4 +11,4 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
 WORKDIR /app
 COPY --from=build-env /app/MentorME .
 
-ENTRYPOINT ["dotnet", "Mentor.Me.Web.dll"]
+ENTRYPOINT ["dotnet", "Mentor.Me.dll"]
