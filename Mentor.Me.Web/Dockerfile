@@ -3,9 +3,9 @@ WORKDIR /app
 EXPOSE 80
 
 COPY . ./
-RUN dotnet restore Mentor.Me.sln
+RUN dotnet restore ./Mentor.Me.Web
 RUN dotnet build ./Mentor.Me.Web -c Release
-RUN dotnet publish ./Mentor.Me.Web/Mentor.Me.Web.csproj -c Release -o carAPI --no-restore --no-build
+RUN dotnet publish ./Mentor.Me.Web/Mentor.Me.Web.csproj -c Release -o MentorME --no-restore --no-build
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS runtime
 WORKDIR /app
