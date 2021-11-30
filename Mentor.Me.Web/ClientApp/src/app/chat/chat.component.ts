@@ -6,7 +6,7 @@ import ChatService from '../shared/services/chat.service';
 import EndpointService from '../shared/services/endpoint.service';
 import LoginService from '../shared/services/login.service';
 import TemplateService from '../shared/services/template.service';
-import Chat from '../shared/types/Chat';
+import Chat from '../shared/types/chat';
 import Message from '../shared/types/message';
 import User from '../shared/types/user';
 import * as uuid from 'uuid';

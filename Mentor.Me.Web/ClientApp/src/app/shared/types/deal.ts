@@ -1,4 +1,4 @@
-import Chat from './Chat';
+import Chat from './chat';
 import User from './user';
 
 export default class Deal {

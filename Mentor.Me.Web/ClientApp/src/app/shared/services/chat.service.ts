@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Chat from '../types/Chat';
+import Chat from '../types/chat';
 import EndpointService from './endpoint.service';
 
 @Injectable({
