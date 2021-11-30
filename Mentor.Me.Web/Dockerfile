@@ -6,7 +6,7 @@ RUN curl -sL https://deb.nodesource.com/setup_17.x |  bash -
 RUN apt-get install -y nodejs
 
 COPY . ./
-RUN dotnet publish ./Mentor.Me.Web/Mentor.Me.Web.csproj -c Release -o MentorME --no-cache
+RUN dotnet publish ./Mentor.Me.Web -c Release -o MentorME --no-cache
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
