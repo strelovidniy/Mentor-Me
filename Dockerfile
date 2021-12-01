@@ -10,6 +10,6 @@ RUN dotnet publish -c Release -o MentorME
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
-COPY --from=build-env /app/MentorME .
+COPY --from=build-env /app/MentorME /app/MentorME
 
 ENTRYPOINT ["dotnet", "Mentor.Me.dll"]
