@@ -5,9 +5,6 @@ EXPOSE 80
 RUN curl -sL https://deb.nodesource.com/setup_17.x |  bash -
 RUN apt-get install -y nodejs
 
-ARG dotnet_cli_home_arg=/tmp/DOTNET_CLI_HOME
-ENV DOTNET_CLI_HOME=$dotnet_cli_home_arg
-
 COPY . ./
 RUN dotnet publish -c Release -o MentorME
 
