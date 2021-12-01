@@ -14,4 +14,6 @@ WORKDIR /app
 FROM build-env as final
 COPY --from=build-env /app/MentorME /app/MentorME
 
+RUN chmod 777 /app/tmp/.dotnet
+
 ENTRYPOINT ["dotnet", "Mentor.Me.Web.dll"]
