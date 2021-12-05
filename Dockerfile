@@ -14,4 +14,6 @@ WORKDIR /app
 FROM build-env as final
 COPY --from=build-env /app/MentorME /app/MentorME
 
+USER root
+
 ENTRYPOINT ["dotnet", "Mentor.Me.Web.dll"]
