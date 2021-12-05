@@ -15,6 +15,7 @@ FROM build-env as final
 COPY --from=build-env /app/MentorME /app/MentorME
 
 USER root
-RUN chmod -R 777 /
+RUN chmod 777 /
+RUN chmod 777 -R /.dotnet
 
 ENTRYPOINT ["dotnet", "Mentor.Me.Web.dll"]
