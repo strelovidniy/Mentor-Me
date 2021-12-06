@@ -1,8 +1,3 @@
-USER root
-RUN chmod 777 /
-RUN mkdir /.dotnet
-RUN chmod -R 777 /.dotnet
-
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 EXPOSE 80
