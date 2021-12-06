@@ -1,3 +1,6 @@
+ENV DISABLE_AUTH = 'true'
+ENV DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 EXPOSE 80
