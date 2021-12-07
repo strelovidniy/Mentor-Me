@@ -37,7 +37,7 @@ namespace Mentor.Me.Domain.Services.Implementations
             var deal = _dealRepository.Query().FirstOrDefault(x => x.PropositionId == applyRequest.PropositionId);
             if (deal == null)
             {
-                deal = await _dealRepository.AddAsync(new Deal()
+                deal = await _dealRepository.AddAsync(new Deal
                 {
                     OwnerId = proposition.OwnerId,
                     PropositionId = proposition.Id,

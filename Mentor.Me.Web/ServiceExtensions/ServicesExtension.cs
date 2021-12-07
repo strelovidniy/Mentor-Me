@@ -1,8 +1,7 @@
-﻿using Mentor.Me.Data.Infrastructure;
-using Mentor.Me.Data.Entities;
+﻿using Mentor.Me.Data.Entities;
+using Mentor.Me.Data.Infrastructure;
 using Mentor.Me.Domain.Services.Implementations;
 using Mentor.Me.Domain.Services.Interfaces;
-using Assignment = Mentor.Me.Data.Entities.Assignment;
 
 namespace Mentor.Me.Web.ServiceExtensions
 {

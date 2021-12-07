@@ -15,7 +15,7 @@ namespace Mentor.Me.Domain.Services.Implementations
         public async Task CreateMeeting(CreateMeetingModel model, IGoogleAuthProvider googleAuthProvider,
             CancellationToken ct)
         {
-            var service = new CalendarService(new BaseClientService.Initializer()
+            var service = new CalendarService(new BaseClientService.Initializer
             {
                 HttpClientInitializer = await googleAuthProvider.GetCredentialAsync(cancellationToken: ct),
                 ApplicationName = "MentorMe"

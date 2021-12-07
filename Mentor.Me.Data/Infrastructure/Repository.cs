@@ -2,7 +2,6 @@
 using Mentor.Me.Data.Context;
 using Mentor.Me.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using Task = System.Threading.Tasks.Task;
 
 namespace Mentor.Me.Data.Infrastructure
 {

@@ -1,7 +1,7 @@
-﻿using Mentor.Me.Data.Infrastructure;
+﻿using Mentor.Me.Data.Entities;
+using Mentor.Me.Data.Enums;
+using Mentor.Me.Data.Infrastructure;
 using Mentor.Me.Domain.Services.Interfaces;
-using Assignment = Mentor.Me.Data.Entities.Assignment;
-using AssignmentStatus = Mentor.Me.Data.Enums.AssignmentStatus;
 
 namespace Mentor.Me.Domain.Services.Implementations
 {

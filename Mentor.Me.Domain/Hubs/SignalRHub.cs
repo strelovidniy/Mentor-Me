@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using Mentor.Me.Data.Entities;
+﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Domain.Services.Interfaces;
-using Task = System.Threading.Tasks.Task;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Mentor.Me.Domain.Hubs
 {

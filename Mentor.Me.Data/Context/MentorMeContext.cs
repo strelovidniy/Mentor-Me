@@ -1,7 +1,6 @@
 ﻿using Mentor.Me.Data.Entities;
 using Mentor.Me.Data.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
-using Assignment = Mentor.Me.Data.Entities.Assignment;
 
 namespace Mentor.Me.Data.Context
 {
